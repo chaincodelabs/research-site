@@ -5,6 +5,10 @@ order: 2
 ---
 
 
+<div class="message">
+  The Chaincode Research Seminar exists to foster and encourage collaboration between the open-source community, industry, and academia towards research advances that benefit Bitcoin.
+</div>
+
 
 <!---
 
@@ -21,8 +25,6 @@ HTML defines a long list of available inline tags, a complete list of which can 
 **Date**: Wednesday September 14th, 2022
 
 **Speaker**: Joseph Bonneau 
-
-**Bio**: todo
 
 **Title**: Short-lived proofs
 
