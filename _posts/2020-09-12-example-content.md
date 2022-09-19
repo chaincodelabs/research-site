@@ -3,8 +3,8 @@ layout: post
 title: Introducing the Chaincode Research Seminar 
 ---
 
-### Example
+### More information coming soon. 
 
-Example content.
+
 
 
