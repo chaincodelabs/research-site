@@ -2,8 +2,7 @@
 title:               Chaincode Labs Research
 tagline:             
 description:         
-url:                 https://research.chaincode.com
-baseurl:             ''
+url:                 "https://chaincode.com/research-site"
 paginate:            5
 permalink:           pretty
 repository:          chaincodelabs/research-site
@@ -11,7 +10,6 @@ repository:          chaincodelabs/research-site
 # About/contact
 author:
   name:              Chaincode Labs Research
-  url:               research.chaincode.com
   email:             nikki@chaincode.com
 
 # Gems
