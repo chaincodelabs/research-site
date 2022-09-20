@@ -6,6 +6,7 @@ url:                 https://research.chaincode.com
 baseurl:             ''
 paginate:            5
 permalink:           pretty
+repository:          chaincodelabs/research-site
 
 # About/contact
 author:
