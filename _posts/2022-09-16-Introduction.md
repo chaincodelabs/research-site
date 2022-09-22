@@ -17,7 +17,7 @@ The Bitcoin research prize is awarded to recognize outstanding results that adva
 
 You can find the nomination form [here](https://docs.google.com/forms/d/e/1FAIpQLSdbjYFSUZcaWWFQHHVNRjd7jO_JEzvkCL7KtHmwgWt0etMaWA/viewform?usp=sf_link).
 
-See more information, including questions & answers at [https://research.chaincode.com/research-award/](https://research.chaincode.com/research-award/).
+See more information, including questions & answers at [https://research.chaincode.com/research-prize/](https://research.chaincode.com/research-prize/).
 
 
 
