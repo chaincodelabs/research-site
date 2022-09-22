@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Chaincode Research Award
+title: Chaincode Research Prize
 order: 3
 ---
 

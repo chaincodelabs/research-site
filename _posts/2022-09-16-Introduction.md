@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing the Chaincode Research Award
+title: Introducing the Chaincode Research Prize
 ---
 
 <!--- ### About --->
@@ -16,6 +16,8 @@ The Bitcoin research prize is awarded to recognize outstanding results that adva
 <!--- * [Example link](http://hyde.getpoole.com) -->
 
 You can find the nomination form [here](https://docs.google.com/forms/d/e/1FAIpQLSdbjYFSUZcaWWFQHHVNRjd7jO_JEzvkCL7KtHmwgWt0etMaWA/viewform?usp=sf_link).
+
+See more information, including questions & answers at [https://research.chaincode.com/research-prize/](https://research.chaincode.com/research-prize/).
 
 
 
