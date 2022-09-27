@@ -29,7 +29,7 @@ HTML defines a long list of available inline tags, a complete list of which can 
 
 **Abstract**: We present and analyze a new protocol that provides a distributed ECDSA signing service, with the following properties: it works in an asynchronous communication model; it works with n parties with up to f < n/3 Byzantine corruptions; it provides guaranteed output delivery; it provides a very efficient, non-interactive online signing phase; it supports additive key derivation according to the BIP32 standard. This service is being implemented and integrated into the architecture of the Internet Computer, enabling smart contracts running on the Internet Computer to securely hold and spend Bitcoin and other cryptocurrencies.
 
-<hr style="border:2px solid light gray">
+<hr style="border:2px solid gray">
 
 **Date**: Wednesday September 14th, 2022
 
