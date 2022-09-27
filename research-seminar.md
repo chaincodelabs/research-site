@@ -20,9 +20,6 @@ HTML defines a long list of available inline tags, a complete list of which can 
 - Superscript <sup>text</sup> uses `<sup>` and subscript <sub>text</sub> uses `<sub>`.
 
 --->
-<table align="left">
-  <tr>
-    <th>
 
 **Date**: Wednesday September 28th, 2022
 
@@ -31,10 +28,8 @@ HTML defines a long list of available inline tags, a complete list of which can 
 **Title**: A new threshold ECDSA protocol: its design and analysis
 
 **Abstract**: We present and analyze a new protocol that provides a distributed ECDSA signing service, with the following properties: it works in an asynchronous communication model; it works with n parties with up to f < n/3 Byzantine corruptions; it provides guaranteed output delivery; it provides a very efficient, non-interactive online signing phase; it supports additive key derivation according to the BIP32 standard. This service is being implemented and integrated into the architecture of the Internet Computer, enabling smart contracts running on the Internet Computer to securely hold and spend Bitcoin and other cryptocurrencies.
-    </th>
-  </tr>
-  <tr>
-    <th>
+
+<hr style="border:2px solid light gray">
 
 **Date**: Wednesday September 14th, 2022
 
@@ -43,6 +38,3 @@ HTML defines a long list of available inline tags, a complete list of which can 
 **Title**: Short-lived proofs
 
 **Abstract**: This talk will discuss short-lived proofs, a non-interactive proof of knowledge with a novel feature: after a specified period of time, the proof is no longer convincing. This time-delayed loss of soundness happens "naturally" without further involvement from the prover or any third party. The talk will discuss potential applications of short-lived proofs and short-lived signatures (a special case). It will also show several practical constructions built using verifiable delay functions (VDFs), including two novel types of VDFs, re-randomizable VDFs and zero-knowledge VDFs, which may be of independent interest.
-      </th>
-  </tr>
-</table>
