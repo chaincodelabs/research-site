@@ -13,6 +13,22 @@ order: 2
 
 <hr style="border:2px solid gray">
 
+**Date**: Tuesday November 8th, 2022
+
+**Speaker**: Nikolaos Papadis (Yale)
+
+**Title**: Towards Optimal Scheduling and Rebalancing in Payment Channel Networks
+
+**Abstract**: Permissionless blockchains like Bitcoin enable multiple parties to reach consensus without the need for mutual trust. However, they usually cannot sustain high throughput and low fees for everyday users. This is why the "layer-2" solution of payment channel networks (PCNs) such as the Lightning Network has been introduced, enabling cheap and fast transactions. In this presentation, we will examine how to improve the Lightning Network's performance. First, we will focus on the transaction scheduling problem and describe a theoretically provable throughput-optimal scheduling policy for a payment channel. Second, we will formulate the optimal channel rebalancing problem for PCN relay nodes as a Markov Decision Process and adapt a reinforcement learning algorithm to arrive at approximately optimal policies that outperform current heuristics based on experiments in a custom-built PCN discrete event simulator. Finally, we will discuss future directions related to Lightning's performance improvement and long-term viability.
+
+Related papers:
+Payment Channel Networks: Single-Hop Scheduling for Throughput Maximization, INFOCOM 2022, https://ieeexplore.ieee.org/document/9796862; earlier arXiv version: https://arxiv.org/abs/2103.17207
+Deep Reinforcement Learning-based Rebalancing Policies for Profit Maximization of Relay Nodes in Payment Channel Networks, preprint, https://eprint.iacr.org/2022/1385
+Blockchain-based Payment Channel Networks: Challenges and Recent Advances, IEEE Access, https://ieeexplore.ieee.org/document/9300150
+
+
+<hr style="border:2px solid gray">
+
 **Date**: Tuesday October 25th, 2022
 
 **Speaker**: Yonatan Sompolinsky (Harvard University)
