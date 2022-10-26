@@ -22,9 +22,9 @@ order: 2
 **Abstract**: Permissionless blockchains like Bitcoin enable multiple parties to reach consensus without the need for mutual trust. However, they usually cannot sustain high throughput and low fees for everyday users. This is why the "layer-2" solution of payment channel networks (PCNs) such as the Lightning Network has been introduced, enabling cheap and fast transactions. In this presentation, we will examine how to improve the Lightning Network's performance. First, we will focus on the transaction scheduling problem and describe a theoretically provable throughput-optimal scheduling policy for a payment channel. Second, we will formulate the optimal channel rebalancing problem for PCN relay nodes as a Markov Decision Process and adapt a reinforcement learning algorithm to arrive at approximately optimal policies that outperform current heuristics based on experiments in a custom-built PCN discrete event simulator. Finally, we will discuss future directions related to Lightning's performance improvement and long-term viability.
 
 Related papers:
-Payment Channel Networks: Single-Hop Scheduling for Throughput Maximization, INFOCOM 2022, https://ieeexplore.ieee.org/document/9796862; earlier arXiv version: https://arxiv.org/abs/2103.17207
-Deep Reinforcement Learning-based Rebalancing Policies for Profit Maximization of Relay Nodes in Payment Channel Networks, preprint, https://eprint.iacr.org/2022/1385
-Blockchain-based Payment Channel Networks: Challenges and Recent Advances, IEEE Access, https://ieeexplore.ieee.org/document/9300150
+- *Payment Channel Networks: Single-Hop Scheduling for Throughput Maximization*, INFOCOM 2022, [link](https://ieeexplore.ieee.org/document/9796862); earlier arXiv version: [link](https://arxiv.org/abs/2103.17207)
+- *Deep Reinforcement Learning-based Rebalancing Policies for Profit Maximization of Relay Nodes in Payment Channel Networks*, preprint, [link](https://eprint.iacr.org/2022/1385)
+Blockchain-based Payment Channel Networks: Challenges and Recent Advances, IEEE Access, [link](https://ieeexplore.ieee.org/document/9300150)
 
 
 <hr style="border:2px solid gray">
@@ -41,7 +41,7 @@ DAG-KNIGHT is a (sophisticated) extension of PHANTOM, which in turn is a general
 
 In the talk, I will go over the basic concepts and components of the protocol, and will cover practical implications to POW consensus.
 
-Joint work with Michael Sutton (DAGlabs)
+(Joint work with Michael Sutton (DAGlabs))
 
 
 <hr style="border:2px solid gray">
