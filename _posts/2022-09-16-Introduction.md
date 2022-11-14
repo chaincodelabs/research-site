@@ -9,7 +9,7 @@ The Bitcoin research prize is awarded to recognize outstanding results that adva
 
 ### Criteria for nomination:
 - Accepted to a peer-reviewed venue
-- Published after January 1st, 2020
+- Published after January 1st, 2019
 - Relevant to Bitcoin or the Lightning Network
 
 
