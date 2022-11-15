@@ -38,7 +38,7 @@ In this work, we propose ROAST, a simple wrapper that turns a given threshold si
 Related papers:
 - *Payment Channel Networks: Single-Hop Scheduling for Throughput Maximization*, INFOCOM 2022, [link](https://ieeexplore.ieee.org/document/9796862); earlier arXiv version: [link](https://arxiv.org/abs/2103.17207)
 - *Deep Reinforcement Learning-based Rebalancing Policies for Profit Maximization of Relay Nodes in Payment Channel Networks*, preprint, [link](https://eprint.iacr.org/2022/1385)
-Blockchain-based Payment Channel Networks: Challenges and Recent Advances, IEEE Access, [link](https://ieeexplore.ieee.org/document/9300150)
+- *Blockchain-based Payment Channel Networks: Challenges and Recent Advances*, IEEE Access, [link](https://ieeexplore.ieee.org/document/9300150)
 
 
 <hr style="border:2px solid gray">
