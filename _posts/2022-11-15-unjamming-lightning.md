@@ -31,7 +31,7 @@ We conclude that the proposal is practical and comparatively straightforward to 
 6. [Conclusion](#conclusion)
 
 
-# Lightning 101
+## Lightning 101
 
 The Lightning Network (LN) is a payment channel network on top of Bitcoin.
 A channel is an instance of a cryptographic protocol between two nodes.
@@ -46,7 +46,7 @@ Enhanced privacy makes it difficult to punish remote adversarial nodes as it's u
 
 [^1]: [Timing attacks](https://arxiv.org/abs/2006.12143) erode this security property.
 
-# Channel Jamming
+## Channel Jamming
 
 Jamming is a denial-of-service attack on Lightning channels.
 An attacker sets up two nodes and initiates a payment between them, but doesn't finalize it promptly.
@@ -88,7 +88,7 @@ We then list the design decisions to be made when constructing a protocol upgrad
 Ultimately, we converge on a combination of unconditional fees and local reputation.
 
 
-# Unconditional Fees
+## Unconditional Fees
 
 Unconditional fees, which are paid regardless of payment success, aim at discouraging quick jamming and may be implemented differently.
 One way would be to pay unconditional fees _upfront_ (when the payment is offered).
@@ -115,7 +115,7 @@ The reasoning is that the total unconditional fee stays low even if the failure 
 For instance, if every attempt has a 20% chance of failure, a payment has a 99% chance of success after just three attempts.
 
 
-# Local Reputation
+## Local Reputation
 
 Fees are ineffective against slow jamming attacks, which only involve a few jams.
 Instead, we address slow jamming using local reputation.
@@ -141,7 +141,7 @@ Implementation-wise, local reputation is beneficial as it requires no coordinati
 Each node reflects its own risk preferences by tuning the parameters of its reputation adjustment algorithm.
 
 
-# Future Work
+## Future Work
 
 Lightning community has proposed multiple ideas on jamming countermeasures in the last few years.
 We think that those ideas may be well worth exploring further, including those we have set aside for now.
@@ -160,7 +160,7 @@ An ideal reputation system would allow routing nodes to filter out bad actors wi
 Further research in this direction would be highly appreciated.
 
 
-# Conclusion
+## Conclusion
 
 In this work, we propose a mitigation strategy against jamming in the Lightning Network.
 Our solution combines unconditional fees and local reputation.
