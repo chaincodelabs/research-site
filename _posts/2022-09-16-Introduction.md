@@ -7,7 +7,7 @@ title: Introducing the Chaincode Research Prize
 
 The Bitcoin research prize is awarded to recognize outstanding results that advance Bitcoin and the Lightning Network. The results can be in cryptography, theoretical computer science, network theory, economics and neighboring fields. A committee of leading researchers will choose the winners annually.
 
-### Criteria for nomination:
+## Criteria for nomination:
 - Accepted to a peer-reviewed venue
 - Published after January 1st, 2019
 - Relevant to Bitcoin or the Lightning Network
