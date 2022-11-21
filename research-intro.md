@@ -11,7 +11,7 @@ We appreciate your interest in Bitcoin.
 Bitcoin is a fascinating and multi-faceted research topic.
 It offers challenging questions across a variety of fields of study.
 This page aims to provide an introduction to Bitcoin-related research directions.
-We emphasize computer science (cryptography, privacy, networking) and economics, although Bitcoin can be viewed through the lens of other scientific disciplines too.
+It emphasizes computer science (cryptography, privacy, networking) and economics, although Bitcoin can be viewed through the lens of other scientific disciplines too.
 
 Bitcoin offers opportunities for applied as well as fundamental research.
 The former typically designs and evaluates proposed protocol upgrades planned for the next few years.
@@ -46,34 +46,33 @@ Introductory and systematization-of-knowledge papers:
 * Tschorsch and Scheuermann. [Bitcoin and Beyond: A Technical Survey on Decentralized Digital Currencies](https://eprint.iacr.org/2015/464)
 * Gudgeon et al. [SoK: Layer-Two Blockchain Protocols](https://eprint.iacr.org/2019/360)
 
-Collections of materials compiled at Chaincode Labs with a stronger focus on development:
-
-* [Chaincode's Bitcoin Curriculum](https://github.com/chaincodelabs/bitcoin-curriculum)
-* [Chaincode's Lightning Curriculum](https://github.com/chaincodelabs/lightning-curriculum)
-
 
 
 # Research Areas in Bitcoin
 
-This section lists some of the prior work and research challenges related to the core Bitcoin protocol.
+This section lists some of the prior work related to Bitcoin in general.
+The next section focused more specifically on second-layer protocols on top of Bitcoin, such as Lightning.[[^1]]
+
+[^1]: We note that there is no single way to cluster prior work in this multi-dimensional research space. One may consider the desirable properties of Bitcoin as a whole (reliability, privacy, censorship resistance), the scientific discipline under which to study it (cryptography, networking, economics), or a particular aspect or layer of the technological stack (wallet design, key management, P2P protocol, second-layer protocols). On this page, each subsection contains papers on a topic that has attracted notable interest from researchers in the last years. Other classification methods are possible.
 
 
-## Cryptography
+## Signature Schemes
 
-The main cryptographic primitives Bitcoin uses are digital signatures and hash functions.
-Most recently, research efforts have been put into implementing secure cryptographic schemes based on a new type of signatures (Schnorr signatures) that Bitcoin supports since 2021.
+A significant research effort has been recently put into designing secure protocols for collaborative signature construction (multi-signatures, threshold signatures).
+Recent papers focus specifically on Schnorr signatures, which Bitcoin supports since 2021.
+Relevant work includes:
 
-Relevant work on Bitcoin-related cryptography includes:
-
-* Gennaro et al. [Threshold-optimal DSA/ECDSA signatures and an application to Bitcoin wallet security](https://eprint.iacr.org/2016/013)
+* Maxwell et al. [Simple Schnorr Multi-Signatures with Applications to Bitcoin](https://eprint.iacr.org/2018/068)
+* Nick et al. [MuSig-DN: Schnorr Multi-Signatures with Verifiably Deterministic Nonces](https://eprint.iacr.org/2020/1057)
+* Nick et al. [MuSig2: Simple Two-Round Schnorr Multi-Signatures](https://eprint.iacr.org/2020/1261)
 * Komlo and Goldberg. [FROST: Flexible Round-Optimized Schnorr Threshold Signatures](https://eprint.iacr.org/2020/852)
 * Ruffing et al. [ROAST: Robust Asynchronous Schnorr Threshold Signatures](https://eprint.iacr.org/2022/550)
 
 
 ## P2P Network
 
-Bitcoin nodes broadcast transactions in the P2P network.
-To allow public verifiability and establishing a level playing field for miners, information propagation should happen efficiently even in low-bandwidth settings, while protecting from network-based privacy attacks.
+Bitcoin uses a P2P network to broadcast transactions, blocks, and other data.
+To allow public verifiability and establishing a level playing field for miners, information propagation should happen efficiently even in low-bandwidth settings, while protecting from denial-of-service and privacy attacks.
 
 Prior work on P2P networking in the context of Bitcoin includes:
 
@@ -81,9 +80,11 @@ Prior work on P2P networking in the context of Bitcoin includes:
 * Decker and Wattenhofer. [Information propagation in the Bitcoin network](https://ieeexplore.ieee.org/abstract/document/6688704)
 * Dotan et al. [Survey on Cryptocurrency Networking: Context, State-of-the-Art, Challenges](https://arxiv.org/abs/2008.08412)
 * Fanti et al. [Dandelion++: Lightweight Cryptocurrency Networking with Formal Anonymity Guarantees](https://arxiv.org/abs/1805.11060)
-* Heilman and Kendler. [Eclipse Attacks on Bitcoin’s Peer-to-Peer Network](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/heilman)
+* Heilman et al. [Eclipse Attacks on Bitcoin’s Peer-to-Peer Network](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/heilman)
 * Naumenko et al. [Erlay: Efficient Transaction Relay for Bitcoin](https://dl.acm.org/doi/10.1145/3319535.3354237)
 * Neudecker and Hartenstein. [Network Layer Aspects of Permissionless Blockchains](https://ieeexplore.ieee.org/document/8456488)
+* Tran et al. [A Stealthier Partitioning Attack against Bitcoin Peer-to-Peer Network](https://erebus-attack.comp.nus.edu.sg/)
+
 
 ## Privacy
 
@@ -98,6 +99,7 @@ Prior work in this area includes:
 * Biryukov et al. [Deanonymisation of clients in Bitcoin P2P network](https://arxiv.org/abs/1405.7418)
 * Fanti and Viswanath. [Anonymity Properties of the Bitcoin P2P Network](https://arxiv.org/abs/1703.08761)
 * Koshy et al. [An Analysis of Anonymity in Bitcoin Using P2P Network Traffic](https://www.ifca.ai/fc14/papers/fc14_submission_71.pdf)
+* Delgado-Segura et al. [TxProbe: Discovering Bitcoin's Network Topology Using Orphan Transactions](https://arxiv.org/abs/1812.00942)
 
 A complementary approach to attacking privacy involves transaction graph analysis.
 Such deanonymization methods and countermeasures have been described in:
@@ -118,7 +120,7 @@ Notable papers that consider the game-theoretic properties of Bitcoin include:
 * Babaioff et al. [On Bitcoin and Red Balloons](https://arxiv.org/abs/1111.2626)
 * Carlsten et al. [On the Instability of Bitcoin Without the Block Reward](https://dl.acm.org/doi/10.1145/2976749.2978408)
 * Courtois and Bahack. [On Subversive Miner Strategies and Block Withholding Attack in Bitcoin Digital Currency](https://arxiv.org/abs/1402.1718)
-* Eyal and Sirer. [Majority is not Enough: Bitcoin Mining is Vulnerable](https://arxiv.org/abs/1311.0243) - the paper introduces _selfish mining_ attack where a malicious miner gets more than its fair share of block subsidy by strategically withholding or revealing blocks they mine.
+* Eyal and Sirer. [Majority is not Enough: Bitcoin Mining is Vulnerable](https://arxiv.org/abs/1311.0243)
 * Garay et al. [The Bitcoin Backbone Protocol: Analysis and Applications](https://eprint.iacr.org/2014/765)
 * Kroll et al. [The Economics of Bitcoin Mining, or Bitcoin in the Presence of Adversaries](https://asset-pdf.scinapse.io/prod/2188530018/2188530018.pdf)
 
@@ -135,19 +137,22 @@ Papers on economic analysis of Bitcoin include:
 
 
 
-# Research Areas in Lightning
+# Research Areas in Lightning and Second-Layer Protocols
 
-This section introduces research directions related to protocols build on top of Bitcoin -- most notably, Lightning.
-The Lightning Network (LN) is a payment channel network on top of Bitcoin that achieves low payment latency and high transactional throughput while accepting additional security assumptions.
+This section introduces research directions related to protocols build on top of Bitcoin.
+The most prominent of those is the Lightning Network (LN).
+The LN is a payment channel network that achieves low payment latency and high transactional throughput while accepting additional security assumptions.
 Other second-layer (L2) protocols are also being developed on top of Bitcoin.
 They usually implement additional functionality by moving most of the protocol logic off-chain and using the base layer only for dispute resolution.
 
-## Second-layer Protocol Design
 
-Developing functional second-layer protocols that require minimal or no changes to Bitcoin remains a research challenge.
+## L2 Protocol Design
+
+Developing functional L2 protocols that require minimal or no changes to Bitcoin remains a research challenge.
 
 Relevant prior work includes:
 
+* Poon and Dryja. [The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments](https://lightning.network/lightning-network-paper.pdf) [[^2]]
 * Aumayr et al. [Bitcoin-Compatible Virtual Channels](https://publik.tuwien.ac.at/files/publik_292507.pdf)
 * Aumayr et al. [Blitz: Secure Multi-Hop Payments Without Two-Phase Commits](https://www.usenix.org/conference/usenixsecurity21/presentation/aumayr)
 * Decker et al. [eltoo: A Simple Layer2 Protocol for Bitcoin](https://diyhpl.us/~bryan/papers2/bitcoin/eltoo.pdf)
@@ -155,6 +160,8 @@ Relevant prior work includes:
 * Le Guilly et al. [Bitcoin Oracle Contracts: Discreet Log Contracts in Practice](https://ieeexplore.ieee.org/abstract/document/9805512)
 * Malavolta et al. [Anonymous Multi-Hop Locks for Blockchain Scalability and Interoperability](https://eprint.iacr.org/2018/472)
 * Malavolta et al. [Concurrency and Privacy with Payment-Channel Networks](https://eprint.iacr.org/2017/820)
+
+[^2]: The [modern LN protocol](https://github.com/lightning/bolts) differs significantly from the initial version introduced in this paper.
 
 
 ## Reliability and Security
