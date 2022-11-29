@@ -8,18 +8,18 @@ Hello, Researcher!
 
 We appreciate your interest in Bitcoin. 
 
-Bitcoin is a fascinating and multi-faceted research topic.
+Bitcoin is a fascinating and multi-faceted topic.
 It offers challenging questions across a variety of fields of study.
-This page aims to provide an introduction to Bitcoin-related research directions.
-It emphasizes computer science (cryptography, privacy, networking) and economics, although Bitcoin can be viewed through the lens of other scientific disciplines too.
+This page provides an overview of Bitcoin-related research.
+It focuses on computer science (cryptography, privacy, networking) and economics, although Bitcoin can be viewed through the lens of other scientific disciplines too.
 
-Bitcoin offers opportunities for applied as well as fundamental research.
+Bitcoin offers avenues for applied as well as fundamental research.
 The former typically designs and evaluates proposed protocol upgrades planned for the next few years.
 The latter tackles more long-term and fundamental challenges that Bitcoin faces.
 
 Bitcoin development emphasizes security and stability.
 Changes to the protocol pass strict review.
-Even though moving academic results towards implementation may be a challenging task,
+While moving academic results towards implementation may be a challenging task,
 high-quality scientific contributions to Bitcoin will have a lasting impact.
 
 We hope this page helps you choose your research direction.
@@ -58,13 +58,15 @@ The next section focused more specifically on second-layer protocols on top of B
 
 ## Signature Schemes
 
-Bitcoin uses digital signatures to let spenders authorize their transactions.
-ECDSA signatures have been used throughout Bitcoin's history; a 2021 protocol upgrade additionally introduced Schnorr signatures.
+Bitcoin spenders use digital signatures authorize their transactions.
+ECDSA signatures have been used throughout Bitcoin's history.
+A 2021 protocol upgrade added support for Schnorr signatures.
 
 In Bitcoin, funds may be controlled by multiple keys.
 Spending such coins requires multiple signatures (or a joint signature).
-Keys may be distributed among different parties (to distribute control over funds) or locations (for increased reliability).
-Designing secure protocols for collaborative signature construction is a non-trivial task that has attracted significant attention from researchers in the last years.
+The corresponding private keys may be held by different parties (to distribute control) or locations (for increased reliability).
+Designing secure protocols for collaborative signature construction is a non-trivial task.
+It has attracted attention from researchers in the last years.
 Schemes for multi-signatures (n-of-n) as well as threshold signatures (t-of-n) have been studied.
 
 Relevant work includes:
@@ -76,8 +78,8 @@ Relevant work includes:
 
 ## P2P Network
 
-Bitcoin uses a P2P network to broadcast transactions, blocks, and other data.
-While inspired by earlier data sharing protocols, Bitcoin's P2P network operates under unique design constraints.
+Bitcoin uses a P2P network to broadcast transactions, blocks, and related data.
+Inspired by earlier data sharing P2P protocols, Bitcoin operates under unique design constraints.
 To allow public verifiability and establishing a level playing field, the network should ensure efficient information propagation even in low-bandwidth settings.
 At the same time, it should defend against denial-of-service and privacy attacks.
 
@@ -98,9 +100,9 @@ Prior work on P2P networking in the context of Bitcoin includes:
 Privacy is a vital property of Bitcoin.
 Not only is privacy required to protect individual users from discrimination based on their financial behavior, it is also necessary to ensure fungibility (making any two units of a currency indistinguishable), which is a desirable property of money.
 Yet, multiple privacy attacks on Bitcoin have been described.
-Ensuring the Bitcoin preserves privacy while remaining permissionless and publicly verifiable is a challenging and important research task.
+Ensuring that Bitcoin preserves privacy while remaining permissionless and publicly verifiable is a challenging and important research task.
 
-Privacy-related issues may be broadly divided into two categories: network analysis and transaction graph analysis.
+Privacy-related issues in Bitcoin may be broadly divided into two categories: P2P network analysis and transaction graph analysis.
 Prior work related to analyzing P2P network traffic:
 
 * Biryukov and Pustogarov. [Bitcoin over Tor isn't a good idea](https://arxiv.org/abs/1410.6079) describes an attack that abuses anti-DoS protection in Bitcoin, which allows for compromising privacy of Bitcoin users behind Tor.
@@ -110,7 +112,7 @@ Prior work related to analyzing P2P network traffic:
 * Koshy et al. [An Analysis of Anonymity in Bitcoin Using P2P Network Traffic](https://www.ifca.ai/fc14/papers/fc14_submission_71.pdf) shows a heuristic-based method of linking transactions to IP addresses they have been initially broadcast.
 * Miller et al. [Discovering Bitcoin's Public Topology and Influential Nodes](https://www.cs.umd.edu/projects/coinscope/coinscope.pdf) discovers the network topology by using the way Bitcoin nodes store IP addresses.
 
-A complementary approach to attacking privacy involves transaction graph analysis.
+A complementary approach to privacy attacks implies analyzing the transaction graph.
 Such deanonymization methods and countermeasures have been described in:
 
 * Androulaki et al. [Evaluating User Privacy in Bitcoin](https://fc13.ifca.ai/proc/1-3.pdf) evaluates Bitcoin's privacy and introduces basic heuristics for transaction graph analysis.
@@ -122,7 +124,7 @@ Such deanonymization methods and countermeasures have been described in:
 ## Game Theory
 
 Bitcoin's architecture has no central authority to coordinate the nodes' behavior, which makes game theory an important aspect of protocol design.
-Research challenges in the area include formalizing the actions of the network participants, identifying undesired deviation strategies, and coming up with ways to mitigate them.
+Research challenges in this area include formalizing the actions of the network participants, identifying undesired deviation strategies, and coming up with ways to mitigate them.
 Notable papers that consider the game-theoretic properties of Bitcoin include:
 
 * Babaioff et al. [On Bitcoin and Red Balloons](https://arxiv.org/abs/1111.2626) suggest a method to incentivize nodes for information propagation.
@@ -151,7 +153,7 @@ This section introduces research directions related to protocols build on top of
 The most prominent of those is the Lightning Network (LN).
 The LN is a payment channel network (PCN) that achieves low payment latency and high transactional throughput while accepting additional security assumptions.
 Other second-layer (L2) protocols are also being developed on top of Bitcoin.
-They usually implement additional functionality by moving most of the protocol logic off-chain and using the base layer only for dispute resolution.
+They generally implement additional functionality by moving most of the protocol logic off-chain and using the base layer only for dispute resolution.
 
 
 ## L2 Protocol Design
@@ -174,7 +176,10 @@ Relevant prior work includes:
 ## Reliability and Security
 
 Second-layer protocols rely on the availability of the base Bitcoin protocol.
-In Lightning, for example, a user must monitor the Bitcoin blockchain to dispute potential fraud attempts (or delegate this task to a third-party service).
+In Lightning, for example, a user must monitor the Bitcoin blockchain and dispute potential fraud attempts.[^3]
+
+[^3]: A user can delegate this task to a third-party service called a watchtower.
+
 Multiple papers have described attacks on this mechanism and suggested mitigations:
 
 * Harris and Zohar. [Flood & Loot: A Systemic Attack On The Lightning Network](https://arxiv.org/abs/2006.08513) describes an attack on LN by manipulating the pre-agreed on-chain fees for channel closure transactions.
@@ -189,7 +194,7 @@ Multiple papers have described attacks on this mechanism and suggested mitigatio
 
 Lightning payments are forwarded along routes from the sender to the receiver.
 The sender considers multiple factors when choosing the route, such as network topology, channel capacities, advertised fees, and outcomes of prior payment attempts.
-An open research question is to design a routing algorithm for payment channel networks that is efficient, scalable, privacy-preserving, and does not lead to network centralization.
+An open research question is to design a routing algorithm for PCNs that is efficient, scalable, privacy-preserving, and does not lead to centralization.
 
 Prior work includes:
 
@@ -202,8 +207,10 @@ Prior work includes:
 
 Similarly to Bitcoin, second-layer networks like Lightning are maintained by independent actors that are assumed to be rational.
 However, the game theory of L2 protocols has its unique characteristics.
-For instance, fees in Lightning depend on payment amount and not on the size (more precisely, _weight_) of transactions, as is the case in base-layer Bitcoin.
+For instance, Lightning fees depend on the payment amount and not on the transaction size,[^4] as is the case in base-layer Bitcoin.
 Formalizing and analyzing such protocols remains an active area of research.
+
+[^4]: More precisely, [_weight_](https://en.bitcoin.it/wiki/Weight_units).
 
 Prior work includes:
 
