@@ -164,23 +164,42 @@ An important design goal is to require minimal or no changes to Bitcoin.
 Relevant prior work includes:
 
 * Poon and Dryja. [The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments](https://lightning.network/lightning-network-paper.pdf) introduces Lightning.[^2]
-* Aumayr et al. [Bitcoin-Compatible Virtual Channels](https://publik.tuwien.ac.at/files/publik_292507.pdf) adapts an alternative payment channel construction called _virtual_ channels to Bitcoin.
+* Aumayr et al. [Bitcoin-Compatible Virtual Channels](https://publik.tuwien.ac.at/files/publik_292507.pdf) adapts an alternative payment channel construction called _virtual_ channels to Bitcoin. Suggested future work
 * Aumayr et al. [Blitz: Secure Multi-Hop Payments Without Two-Phase Commits](https://www.usenix.org/conference/usenixsecurity21/presentation/aumayr) proposes an improved payment channel protocol that only requires one round of communication (unlike the LN that requires two).
-* Decker et al. [eltoo: A Simple Layer2 Protocol for Bitcoin](https://diyhpl.us/~bryan/papers2/bitcoin/eltoo.pdf) proposes a payment channel protocol with a more efficient state replacement mechanism (that relies on a yet-to-be-implemented [upgrade](https://bitcoinops.org/en/topics/sighash_anyprevout/) to Bitcoin).
-* Le Guilly et al. [Bitcoin Oracle Contracts: Discreet Log Contracts in Practice](https://ieeexplore.ieee.org/abstract/document/9805512) proposes a way to establish Bitcoin _contracts_ whose resolution depends on the outcome of real-world events as reported by a trusted _oracle_.
-* Malavolta et al. [Anonymous Multi-Hop Locks for Blockchain Scalability and Interoperability](https://eprint.iacr.org/2018/472) defines a novel multi-hop lock construction for privacy-preserving payment channel-networks.
 
 [^2]: See [modern LN protocol](https://github.com/lightning/bolts) for the up-to-date protocol specification.
 
+**Game theory** of Lightning is a related research direction.
+Similarly to Bitcoin, second-layer networks like Lightning are maintained by independent actors that are assumed to be rational.
+However, the game theory of L2 protocols has its unique characteristics.
+For instance, Lightning fees depend on the payment amount and not on the transaction size,[^3] as is the case in base-layer Bitcoin.
+An important consideration for L2 protocol design is to avoid, or at least to minimize the adverse effects of centralization.
+For example, Lightning nodes have tendency to prefer connecting to already well-connected nodes ("hubs"), increasing the network's dependence on them.
+A research challenge is thereby: how do we ensure the protocol's security guarantees and permissionless access, even under a relatively centralized[^4] network topology?
+
+Prior work on Lightning's economic aspects includes:
+
+* Beres et al. [A Cryptoeconomic Traffic Analysis of Bitcoin's Lightning Network](https://arxiv.org/abs/1911.09432) simulates Lightning traffic based on a public network snapshot, estimates feasible fee revenues, and analyzes the network's economic viability as well as privacy.
+* Guasoni et al. [Lightning Network Economics: Channels](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3840374) quantifies the cost of LN channels and the optimal conditions for two parties to open one.
+* Lin et al. [Lightning network: a second path towards centralisation of the Bitcoin economy](https://iopscience.iop.org/article/10.1088/1367-2630/aba062/meta) analyzes the topological centralization of the Lightning network.
+
+Formalizing and analyzing second-layer protocols remains an active area of research.
+
+[^3]: More precisely, [_weight_](https://en.bitcoin.it/wiki/Weight_units).
+[^4]: There are multiple metrics of topological centralization; evaluating their applicability for Lightning and similar networks is a separate research question.
+
+Currently active development efforts include the following:
+
+* **eltoo** is a new payment channel construction with a more efficient state replacement mechanism (relies on a yet-to-be-implemented [upgrade](https://bitcoinops.org/en/topics/sighash_anyprevout/) to Bitcoin). See: Decker et al. [eltoo: A Simple Layer2 Protocol for Bitcoin](https://diyhpl.us/~bryan/papers2/bitcoin/eltoo.pdf).
+* **Point Time Locked Contracts (PTLC)** are a new type of multi-hop Schnorr-based channel locks improving channel privacy and efficiency. See: Malavolta et al. [Anonymous Multi-Hop Locks for Blockchain Scalability and Interoperability](https://eprint.iacr.org/2018/472). For a recent write-up, see: [Multi-Hop Locks from Scriptless Scripts](https://github.com/ElementsProject/scriptless-scripts/blob/master/md/multi-hop-locks.md).
+* **Generic oracle-powered contracts** would allow parties to sign a contract whose resolution depends on the outcome of real-world events as reported by a trusted _oracle_. See: Le Guilly et al. [Bitcoin Oracle Contracts: Discreet Log Contracts in Practice](https://ieeexplore.ieee.org/abstract/document/9805512).
+
+See also [LN Research Community](https://github.com/lnresearch) for LN datasets and inspection tools.
 
 ## Reliability and Security
 
 Second-layer protocols rely on the availability of the base Bitcoin protocol.
-In Lightning, for example, a user must monitor the Bitcoin blockchain and dispute potential fraud attempts.[^3]
-
-[^3]: A user can delegate this task to a third-party service called a watchtower.
-
-Multiple papers have described attacks on this mechanism and suggested mitigations:
+Multiple papers have described attacks on the Lightning's dispute resolution mechanism and suggested mitigations:
 
 * Harris and Zohar. [Flood & Loot: A Systemic Attack On The Lightning Network](https://arxiv.org/abs/2006.08513) describes an attack on LN by manipulating the pre-agreed on-chain fees for channel closure transactions.
 * Mizrahi et al. [Congestion Attacks in Payment Channel Networks](https://arxiv.org/abs/2002.06564) evaluates the cost of channel _jamming_, that is, rendering channels useless by occupying all their payment slots with long-held in-flight payments.
@@ -189,6 +208,23 @@ Multiple papers have described attacks on this mechanism and suggested mitigatio
 * Tohner et al. [Hijacking Routes in Payment Channel Networks: A Predictability Tradeoff](https://arxiv.org/abs/1909.06890) describes an attack that involves attracting LN payments by advertising low fees and then denying service.
 * Tsabary et al. [MAD-HTLC: Because HTLC is Crazy-Cheap to Attack](https://arxiv.org/abs/2006.12031) indicates a potential for miner bribery attacks in the current LN protocol and proposes a more game-theoretically robust construction for channel updates.
 
+A Lightning user must monitor the Bitcoin blockchain and dispute potential fraud attempts.
+This task can be delegated to a third-party service called a watchtower.
+Multiple watchtower and payment channel schemes have been proposed:
+
+* Avarikioti et al. [Cerberus Channels: Incentivizing Watchtowers for Bitcoin](https://eprint.iacr.org/2019/1092) proposes a Bitcoin-compatible payment channel construction with incentivized watchtowers.
+* Avarikioti et al. [HIDE & SEEK: Privacy-Preserving Rebalancing on Payment Channel Networks](https://eprint.iacr.org/2021/1401) presents an opt-in rebalancing protocol that uses multi-party computation for privacy.
+* Khabbazian et al. [Outpost: A Responsive Lightweight Watchtower](https://eprint.iacr.org/2019/986) suggests encoding justice transaction in Lightning opening and commitment transactions to reduce storage requirements for watchtowers.
+* Mirzaei et al. [FPPW: A Fair and Privacy Preserving Watchtower For Bitcoin](https://eprint.iacr.org/2021/117) proposes a watchtower scheme for Bitcoin with fairness and balance privacy.
+
+Modern research questions include the following:
+
+* **Improving Lightning's UX.** Some of the current UX challenges stem from Lightning's inherent interactivity requirements. Nodes on the path must be online to forward a payment, in contrast to base-layer Bitcoin, which doesn't require the receiver to be online. Another UX hurdle comes from the fact that many payment fail on the first try. The sender has to try multiple routes, which takes time. The overarching US goal is to ensure a smooth payment experience comparable to traditional payment services while avoiding trusted third parties.
+* **Liquidity management.** LN payment often fail because of lack of liquidity in some channel along the path. Routing nodes apply _liquidity management_ techniques such as _channel rebalancing_ to increase payment success rates. See: [Imbalance measure and proactive channel rebalancing algorithm for the Lightning Network](https://ieeexplore.ieee.org/abstract/document/9169456) by Pickhardt and Nowostawski.
+* **Trustless watchtowers.** The security of LN channels relies on the assumption that both parties monitor the blockchain and dispute fraudulent channel closure if they happen. Users may delegate this task to a third-party service called a watchtower. A watchtower should be accountable (that is, get paid only if it does its job, and get punish if it doesn't), while revealing minimal details about the channel in question. A separate challenge is to enforce payments that were in-flight at the time of channel closure. See: [The Eye of Satoshi (rust-teos)](https://github.com/talaia-labs/rust-teos).
+* **Interaction with the base layer.** Fundamentally, second-layer protocols rely on the base-layer blockchain for rule enforcement. However, it is unclear how to make such enforcement reliable. The fundamental challenge that requires further research and development is that congestion levels cannot be predicted in advance, enabling attack vectors like [transaction pinning](https://bitcoinops.org/en/topics/transaction-pinning/) (see also: [anchor outputs](https://bitcoinops.org/en/topics/anchor-outputs/)).
+* **Addressing DoS vectors like jamming.** Jamming is a denial-of-service attack that involves initiating payments and delaying their finalization. Multiple approached to jamming countermeasures [have been discussed](https://blog.bitmex.com/preventing-channel-jamming/), including new [fee and reputation schemes](https://research.chaincode.com/2022/11/15/unjamming-lightning/).
+
 
 ## Routing
 
@@ -196,37 +232,36 @@ Lightning payments are forwarded along routes from the sender to the receiver.
 The sender considers multiple factors when choosing the route, such as network topology, channel capacities, advertised fees, and outcomes of prior payment attempts.
 An open research question is to design a routing algorithm for PCNs that is efficient, scalable, privacy-preserving, and does not lead to centralization.
 
-Prior work includes:
+Historical work on routing in PCNs includes:
 
 * Sivaraman et al. [High Throughput Cryptocurrency Routing in Payment Channel Networks](https://arxiv.org/abs/1809.05088) suggests improved routing for PCNs with adaptive fees incentivizing rebalancing.
 * Roos et al. [Settling Payments Fast and Private: Efficient Decentralized Routing for Path-Based Transactions](https://arxiv.org/abs/1709.05748) proposes embedding-based path discovery for PCNs.
-* Pickhardt and Richter. [Optimally Reliable and Cheap Payment Flows on the Lightning Network](https://arxiv.org/abs/2107.05322) proposes an improved path-finding approach for the LN based on the success probabilities of payment attempts.
 
+A recent research result on the topic is:
 
-## Economics and Game Theory
+* Pickhardt and Richter. [Optimally Reliable and Cheap Payment Flows on the Lightning Network](https://arxiv.org/abs/2107.05322) proposes an improved path-finding approach for the LN based on the success probabilities of payment attempts. This proposal has been implemented as [a Python package](https://github.com/renepickhardt/pickhardtpayments) and as [a plugin for LND](https://github.com/C-Otto/lnd-manageJ/blob/main/PickhardtPayments.md), a popular Lightning implementation.
 
-Similarly to Bitcoin, second-layer networks like Lightning are maintained by independent actors that are assumed to be rational.
-However, the game theory of L2 protocols has its unique characteristics.
-For instance, Lightning fees depend on the payment amount and not on the transaction size,[^4] as is the case in base-layer Bitcoin.
-Formalizing and analyzing such protocols remains an active area of research.
+An open research question is **developing a path selection algorithm** for Lightning with the following properties:
 
-[^4]: More precisely, [_weight_](https://en.bitcoin.it/wiki/Weight_units).
-
-Prior work includes:
-
-* Beres et al. [A Cryptoeconomic Traffic Analysis of Bitcoin's Lightning Network](https://arxiv.org/abs/1911.09432) simulates Lightning traffic based on a public network snapshot, estimates feasible fee revenues, and analyzes the network's economic viability as well as privacy.
-* Guasoni et al. [Lightning Network Economics: Channels](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3840374) quantifies the cost of LN channels and the optimal conditions for two parties to open one.
-* Lin et al. [Lightning network: a second path towards centralisation of the Bitcoin economy](https://iopscience.iop.org/article/10.1088/1367-2630/aba062/meta) analyzes the topological centralization of the Lightning network.
+* Efficiency. Payments should have a high probability of success after a small number of attempted routes (ideally, they should succeed on the first try). The key obstacles are that channel balances are, in the general case, unknown to the sender, and that some nodes along the route may be offline.
+* Being trustless. A user should not have to delegate path-finding to trusted third parties.
+* Privacy. Route selection must not reveal the user's private information.
+* Moderate resource usage. Route selection should be feasible on resource-constrained devices in terms of memory and processing power.
 
 
 ## Privacy
 
 Second-layer protocols, including Lightning, present a novel set of privacy challenges.
 The protocol should not reveal a user's balance, their position in the path, or even the existence of their channels, if they choose not to announce it.
-Further research is needed to achieve these goals, as shown by the following papers:
+
+The following papers analyze privacy challenges for Lightning:
 
 * Kappos et al. [An Empirical Analysis of Privacy in the Lightning Network](https://arxiv.org/abs/2003.12470) describes multiple privacy attacks on the LN, including identifying unannounced channels and path discovery by an honest-but-curious routing node.
 * Nisslmueller et al. [Toward Active and Passive Confidentiality Attacks On Cryptocurrency Off-Chain Networks](https://arxiv.org/abs/2003.00003) investigates two attacks on Lightning: channel balance probing and timing attacks.
 * Romiti et al. [Cross-Layer Deanonymization Methods in the Lightning Protocol](https://arxiv.org/abs/2007.00764) investigates how the LN interacts with the base layer and what related heuristics may help an attacker to diminish LN users' privacy.
-* Herrera-Joancomartí et al. [On the Difficulty of Hiding the Balance of Lightning Network Channels](https://eprint.iacr.org/2019/328) is the first paper to introduce channel balance probing - an attack that allows for estimating the balance in a remote channel by sending fake payments through it.
 
+Ongoing development efforts related to privacy in Lightning include:
+
+* **Cross-layer privacy.** It is easy to link LN channels with their on-chain footprint (in particular, the output, of the channel opening transaction). This allows for enriching existing on-chain address clustering data with LN information. At the same time, it is necessary to link channel announcements to some scarce resource to avoid denial-of-service attacks. One approach is requiring proofs of ownership of _some_ on-chain output without revealing which one it is.
+* **Privacy-preserving route discovery.** Receivers in Lightning have to reveal their node identity to the sender. Techniques like [blinded paths](https://github.com/lightning/bolts/pull/765) aim to lift this requirement to ensure sender privacy. See also: [trampoline payments](https://bitcoinops.org/en/topics/trampoline-payments/). More generally, an adversary can make educated guesses regarding the route of a given payment by running the algorithm locally on a graph snapshot. Privacy leaks also occur through response timings, see: [Counting Down Thunder: Timing Attacks on Privacy in Payment Channel Networks](https://arxiv.org/abs/2006.12143) by Rohrer and Tschorsch. Designing a privacy-aware routing remains an open problem.
+* **Preventing balance probing.** While channel balances are not announced, it is in most cases easy to estimate them based on payment failures. Nodes may perform probing to increase success rates of their own payments (as the uncertainty of channel balances is the leading cause of payment failure). Constant probing (i.e., sending payments that immediately fail) burdens the network. It remains an open problem to reconcile the need for payment reliability and privacy. See e.g.: Herrera-Joancomartí et al. [On the Difficulty of Hiding the Balance of Lightning Network Channels](https://eprint.iacr.org/2019/328) (the first paper to introduce channel balance probing).
