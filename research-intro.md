@@ -31,21 +31,40 @@ The Bitcoin community looks forward to your contributions!
 
 Let us start with introductory materials to get a general overview of the area.
 
-Books:
+The original whitepaper that introduced Bitcoin in 2008 defines its mission and the core design principles that still inform the development decisions:
+
+* Nakamoto. [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
+
+Multiple systematization-of-knowledge papers provide an overview of Bitcoin:
+
+* Narayanan and Clark. [Bitcoin's Academic Pedigree](https://queue.acm.org/detail.cfm?id=3136559)
+* Bonneau et al. [SoK: Research Perspectives and Challenges for Bitcoin and Cryptocurrencies](https://www.ieee-security.org/TC/SP2015/papers-archived/6949a104.pdf)
+* Tschorsch and Scheuermann. [Bitcoin and Beyond: A Technical Survey on Decentralized Digital Currencies](https://eprint.iacr.org/2015/464)
+* Gudgeon et al. [SoK: Layer-Two Blockchain Protocols](https://eprint.iacr.org/2019/360)
+
+Multiple books have been written on the subject, such as:
 
 * Narayanan et al. [Bitcoin and Cryptocurrency Technologies](https://bitcoinbook.cs.princeton.edu/)
 * Antonopoulos. [Mastering Bitcoin](https://aantonop.com/books/mastering-bitcoin/)
 * Antonopoulos et al. [Mastering the Lightning Network](https://github.com/lnbook/lnbook)
 * Rosenbaum. [Grokking Bitcoin](https://www.manning.com/books/grokking-bitcoin)
 
-Introductory and systematization-of-knowledge papers:
+While it's not necessarily required to read those books cover to cover to start with Bitcoin research, they can be helpful as points of reference on Bitcoin's technical details.
 
-* Nakamoto. [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
-* Narayanan and Clark. [Bitcoin's Academic Pedigree](https://queue.acm.org/detail.cfm?id=3136559)
-* Bonneau et al. [SoK: Research Perspectives and Challenges for Bitcoin and Cryptocurrencies](https://www.ieee-security.org/TC/SP2015/papers-archived/6949a104.pdf)
-* Tschorsch and Scheuermann. [Bitcoin and Beyond: A Technical Survey on Decentralized Digital Currencies](https://eprint.iacr.org/2015/464)
-* Gudgeon et al. [SoK: Layer-Two Blockchain Protocols](https://eprint.iacr.org/2019/360)
 
+# A path from research to development in Bitcoin
+
+Bitcoin is guided by a [design philosophy](https://github.com/bitcoin-dev-philosophy/btcphilosophy) that puts a strong emphasis on decentralization and trustlessness.
+As a consequence, Bitcoin is difficult to change.
+Proposed modifications that break backwards compatibility (i.e., introduce a _hard fork_) are highly unlikely to be considered.
+Changes to the protocol that introduce new functionality without forcing nodes to upgrade (_soft forks_) are possible but may take multiple years to be implemented.
+Although second-layer protocols like Lightning are more dynamic, convincing their development communities to modify the protocol is also a non-trivial task.
+
+Examples of research projects (also cited below under their respective subsections) that lead to changes to Bitcoin's codebase may include:
+
+* [Erlay](https://arxiv.org/abs/1905.10518) -- a proposed modification to Bitcoin's P2P protocol that significantly decreases bandwidth usage -- is [being actively implemented](https://github.com/bitcoin/bitcoin/pull/21515) (as of late 2022).
+* The [Erebus attack](https://erebus-attack.comp.nus.edu.sg/) that allows malicious Internet service providers to isolate Bitcoin nodes has motivated the development of [multiple countermeasures](https://erebus-attack-countermeasures.github.io/).
+* Other eclipse-attack-related papers have lead to [multiple P2P improvements](https://github.com/bitcoin-core/bitcoin-devwiki/wiki/Addrman-and-eclipse-attacks).
 
 
 # Research Areas in Bitcoin
@@ -94,6 +113,8 @@ Prior work on P2P networking in the context of Bitcoin includes:
 * Neudecker and Hartenstein. [Network Layer Aspects of Permissionless Blockchains](https://ieeexplore.ieee.org/document/8456488) classify the requirements for cryptocurrency network protocols and review related attacks.
 * Tran et al. [A Stealthier Partitioning Attack against Bitcoin Peer-to-Peer Network](https://erebus-attack.comp.nus.edu.sg/) presents the Erebus attack, which allows malicious Internet service providers to isolate public Bitcoin nodes from the network.
 
+For a review of eclipse attacks and countermeasures against them, see [this document](https://github.com/bitcoin-core/bitcoin-devwiki/wiki/Addrman-and-eclipse-attacks) by Martin Zumsande.
+
 
 ## Privacy
 
@@ -132,6 +153,8 @@ Notable papers that consider the game-theoretic properties of Bitcoin include:
 * Courtois and Bahack. [On Subversive Miner Strategies and Block Withholding Attack in Bitcoin Digital Currency](https://arxiv.org/abs/1402.1718) analyze deviant miners' strategies and the related attacks.
 * Eyal and Sirer. [Majority is not Enough: Bitcoin Mining is Vulnerable](https://arxiv.org/abs/1311.0243) introduces selfish mining - a strategy that allows a malicious miner to get more than its fair share of the block reward by strategically delaying block announcements.
 * Garay et al. [The Bitcoin Backbone Protocol: Analysis and Applications](https://eprint.iacr.org/2014/765) formally describe the Bitcoin protocol and analyze it in the context of Byzantine agreement.
+* Pass et al. [Analysis of the Blockchain Protocol in Asynchronous Networks](https://eprint.iacr.org/2016/454) analyzes Nakamoto consensus protocol in the asynchronous setting.
+* Guo and Ren. [Bitcoin's Latency--Security Analysis Made Simple](https://arxiv.org/abs/2203.06357) develop the upper and lower bounds on the security of Nakamoto consensus.
 * Kroll et al. [The Economics of Bitcoin Mining, or Bitcoin in the Presence of Adversaries](https://asset-pdf.scinapse.io/prod/2188530018/2188530018.pdf) analyzes the mining mechanics and discusses Bitcoin governance.
 
 
@@ -265,3 +288,21 @@ Ongoing development efforts related to privacy in Lightning include:
 * **Cross-layer privacy.** It is easy to link LN channels with their on-chain footprint (in particular, the output, of the channel opening transaction). This allows for enriching existing on-chain address clustering data with LN information. At the same time, it is necessary to link channel announcements to some scarce resource to avoid denial-of-service attacks. One approach is requiring proofs of ownership of _some_ on-chain output without revealing which one it is.
 * **Privacy-preserving route discovery.** Receivers in Lightning have to reveal their node identity to the sender. Techniques like [blinded paths](https://github.com/lightning/bolts/pull/765) aim to lift this requirement to ensure sender privacy. See also: [trampoline payments](https://bitcoinops.org/en/topics/trampoline-payments/). More generally, an adversary can make educated guesses regarding the route of a given payment by running the algorithm locally on a graph snapshot. Privacy leaks also occur through response timings, see: [Counting Down Thunder: Timing Attacks on Privacy in Payment Channel Networks](https://arxiv.org/abs/2006.12143) by Rohrer and Tschorsch. Designing a privacy-aware routing remains an open problem.
 * **Preventing balance probing.** While channel balances are not announced, it is in most cases easy to estimate them based on payment failures. Nodes may perform probing to increase success rates of their own payments (as the uncertainty of channel balances is the leading cause of payment failure). Constant probing (i.e., sending payments that immediately fail) burdens the network. It remains an open problem to reconcile the need for payment reliability and privacy. See e.g.: Herrera-Joancomartí et al. [On the Difficulty of Hiding the Balance of Lightning Network Channels](https://eprint.iacr.org/2019/328) (the first paper to introduce channel balance probing).
+
+
+# Further resources
+
+Here we list some of the resources that Bitcoin development discussion centers around.
+
+* [Bitcoin Optech](https://bitcoinops.org/) issues a newsletter explaining recent changes in Bitcoin-related open-source software and offers a glossary of Bitcoin technical topics.
+* [Bitcoin-dev mailing list](https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev) hosts current discussions about the development of Bitcoin. A separate list ([lightning-dev](https://lists.linuxfoundation.org/mailman/listinfo/lightning-dev)) exists for Lightning Network discussions.
+* [Bitcoin Transcripts](https://btctranscripts.com/) hosts an archive of transcripts from Bitcoin-related conference talks.
+* [Bitcoin StackExchange](https://bitcoin.stackexchange.com/) is a Bitcoin-focused Q&A website.
+* [Bitcoin Problems](https://bitcoinproblems.org/) provides context for some of the Bitcoin- and Lightning-related research problems.
+* [Bitcoin Core PR Review Club](https://bitcoincore.reviews/) is a weekly meeting to discuss a proposed change (a _pull request_, or PR for short) into Bitcoin Core.
+
+Bitcoin-related technical conferences are another important discussion platform. Many publish videos of talks online. Examples include:
+
+* [Scaling Bitcoin](https://scalingbitcoin.org/)
+* [Breaking Bitcoin](https://breaking-bitcoin.com/)
+* [Advancing Bitcoin](https://www.advancingbitcoin.com/)
