@@ -11,7 +11,7 @@ We appreciate your interest in Bitcoin.
 Bitcoin is a fascinating and multi-faceted topic.
 It offers challenging questions across a variety of fields of study.
 This page provides an overview of Bitcoin-related research.
-It focuses on computer science (cryptography, privacy, networking) and economics, although Bitcoin can be viewed through the lens of other scientific disciplines too.
+It focuses on computer science (cryptography, privacy, networking) and economics, although Bitcoin can be viewed through the lens of other scientific disciplines, too.
 
 Bitcoin offers avenues for applied as well as fundamental research.
 The former typically designs and evaluates proposed protocol upgrades planned for the next few years.
