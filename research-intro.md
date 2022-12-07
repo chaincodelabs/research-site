@@ -54,7 +54,7 @@ While it's not necessarily required to read those books cover to cover to start 
 
 # A path from research to development in Bitcoin
 
-Bitcoin is guided by a [design philosophy](https://github.com/bitcoin-dev-philosophy/btcphilosophy) that strongly emphasizes decentralization and trustlessness.
+Bitcoin is guided by a [design philosophy](https://github.com/bitcoin-dev-philosophy/btcphilosophy) that strongly emphasizes decentralization and trust minimization.
 Bitcoin is designed to operate in an adversarial environment, while remaining a permissionless system.
 Security is the key design goal that applies to all layers of the Bitcoin stack.
 
