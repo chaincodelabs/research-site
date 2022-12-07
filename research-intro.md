@@ -11,7 +11,9 @@ We appreciate your interest in Bitcoin.
 This page provides an overview of Bitcoin-related research.
 Bitcoin is a fascinating and multi-faceted topic.
 It offers challenging questions across a variety of fields of study.
-We focus on computer science (cryptography, privacy, networking) and economics, although Bitcoin can be viewed through the lens of other scientific disciplines too.
+
+This page provides an overview of Bitcoin-related research.
+It focuses on computer science (cryptography, privacy, networking) and economics, although Bitcoin can be viewed through the lens of other scientific disciplines, too.
 
 Bitcoin offers avenues for applied as well as fundamental research.
 The former typically designs and evaluates proposed protocol upgrades planned for the next few years.
@@ -197,6 +199,7 @@ Research questions in Bitcoin as viewed through the economic lens may include:
 * **Bitcoin price analysis.** What influences the price of Bitcoin? See e.g. [How Futures Trading Changed Bitcoin Prices](https://www.frbsf.org/economic-research/wp-content/uploads/sites/4/el2018-12.pdf) by Hale et al.
 * **Wallet management.** Bitcoin users bid on block space, which is a limited resource. When constructing transactions, wallets face a trade-off between getting a transaction promptly confirmed vs overpaying in fees. The relevant research questions may be: how is Bitcoin's block space market organized? How should wallets construct transactions from their available unspent transaction outputs (see [Coin selection](https://bitcoinops.org/en/topics/coin-selection/) and [An Evaluation of Coin SelectionStrategies](https://murch.one/erhardt2016coinselection.pdf) by Mark Erhardt)? Moreover, unconfirmed transaction may be _replaced_ ([replace-by-fee, or RBF](https://bitcoinops.org/en/topics/replace-by-fee/)). What is the optimal replacement strategy for a wallet, and how does it affect the overall dynamics of the block space market? An additional aspect that becomes especially relevant for high-volume wallets is UXTO (unspent transaction output) management. Under what conditions is it worth it to consolidate small UTXOs? What privacy implications does it entail?
 * **Block building.** On the other side of the block space market are miner who collect unconfirmed transaction into blocks in exchange for block subsidy and fees. Generally speaking, block building is an instance of the knapsack problem; however, there are many Bitcoin-specific considerations to this process (see e.g. [Improvement on the current block building algorithm](https://gist.github.com/Xekyo/5cb413fe9f26dbce57abfd344ebbfaf2#file-candidate-set-based-block-building-md) by Mark Erhardt and Clara Shikhelman).
+* **Optional transaction fee policies.** How is Bitcoin's block space market organized? What do fee rates depend upon? How should wallets construct transactions from their available unspent transaction outputs (see [Coin selection](https://bitcoinops.org/en/topics/coin-selection/) and [An Evaluation of Coin Selection Strategies](https://murch.one/erhardt2016coinselection.pdf) by Mark Erhardt)?
 * **Mining economics.** What factors influence miners' behavior? Under what conditions is mining profitable? (See [The Economics of Bitcoin Mining, or Bitcoin in the Presence of Adversaries](https://asset-pdf.scinapse.io/prod/2188530018/2188530018.pdf) by Kroll et al.)
 * **Bitcoin's wider economic impact.** How does Bitcoin adoption influence the global economy? For example, what role does or could it play in the remittance market? What are the effects of adopting Bitcoin as legal tender (as done in El Salvador)? How does Bitcoin mining impact the energy markets?
 
