@@ -193,7 +193,7 @@ Bitcoin can also be viewed from the economics perspective.
 Research questions in Bitcoin as viewed through the economic lens may include:
 
 * **Bitcoin price analysis.** What influences the price of Bitcoin? See e.g. [How Futures Trading Changed Bitcoin Prices](https://www.frbsf.org/economic-research/wp-content/uploads/sites/4/el2018-12.pdf) by Hale et al.
-* **Optional transaction fee policies.** How is Bitcoin's block space market organized? What do fee rates depend upon? How should wallets construct transactions from their available unspent transaction outputs (see [Coin selection](https://bitcoinops.org/en/topics/coin-selection/) and [An Evaluation of Coin SelectionStrategies](https://murch.one/erhardt2016coinselection.pdf) by Mark Erhardt)?
+* **Optional transaction fee policies.** How is Bitcoin's block space market organized? What do fee rates depend upon? How should wallets construct transactions from their available unspent transaction outputs (see [Coin selection](https://bitcoinops.org/en/topics/coin-selection/) and [An Evaluation of Coin Selection Strategies](https://murch.one/erhardt2016coinselection.pdf) by Mark Erhardt)?
 * **Mining economics.** What factors influence miners' behavior? Under what conditions is mining profitable? (See [The Economics of Bitcoin Mining, or Bitcoin in the Presence of Adversaries](https://asset-pdf.scinapse.io/prod/2188530018/2188530018.pdf) by Kroll et al.)
 
 Papers on economic analysis of Bitcoin include:
