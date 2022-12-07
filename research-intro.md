@@ -112,7 +112,7 @@ Inspired by earlier data sharing P2P protocols, Bitcoin operates under unique de
 To allow public verifiability and establish a level playing field for miners, the network should ensure efficient information propagation even in low-bandwidth settings.
 At the same time, it should defend against denial-of-service and privacy attacks.
 
-For a review of eclipse attacks and countermeasures against them, see [this document](https://github.com/bitcoin-core/bitcoin-devwiki/wiki/Addrman-and-eclipse-attacks) by Martin Zumsande.
+For a review of eclipse attacks and countermeasures against them, see [this document](https://github.com/bitcoin-core/bitcoin-devwiki/wiki/Addrman-and-eclipse-attacks) by Adam Jonas et al.
 
 See also the paper [Survey on Cryptocurrency Networking: Context, State-of-the-Art, Challenges](https://arxiv.org/abs/2008.08412) by Dotan et al. that presents the state of the art in networking for cryptocurrencies and lists open research questions.
 
