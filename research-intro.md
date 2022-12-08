@@ -261,8 +261,9 @@ Currently active development efforts include the following:
 * **Point Time Locked Contracts (PTLC)** are a new type of multi-hop Schnorr-based channel locks improving channel privacy and efficiency. See: Malavolta et al. [Anonymous Multi-Hop Locks for Blockchain Scalability and Interoperability](https://eprint.iacr.org/2018/472). For a recent write-up, see: [Multi-Hop Locks from Scriptless Scripts](https://github.com/ElementsProject/scriptless-scripts/blob/master/md/multi-hop-locks.md).
 * **Generic oracle-powered contracts** would allow parties to sign a contract whose resolution depends on the outcome of real-world events as reported by a trusted _oracle_. See: Le Guilly et al. [Bitcoin Oracle Contracts: Discreet Log Contracts in Practice](https://ieeexplore.ieee.org/abstract/document/9805512).
 * **Chaumian e-cash in the Bitcoin context.** Another approach to scaling Bitcoin is to implement [Chaumian e-cash](http://www.hit.bme.hu/~buttyan/courses/BMEVIHIM219/2009/Chaum.BlindSigForPayment.1982.PDF) within federations of nodes, with federations communicating via Lightning (see [Fedimint](https://fedimint.org/)).
+* **Rollups.** A rollup is a protocol for blockchain scaling that implies transaction execution off-chain and verification of its correctness on-chain. Research on the feasibility of rollups in Bitcoin has been published for both major categories of such protocols: [validity rollups](https://bitcoinrollups.org/) and [zk-rollups](https://tr3y.io/articles/crypto/bitcoin-zk-rollups.html).
 
-Prior work on L2 designs includes:
+Prior work on L2 designs also includes:
 
 * Aumayr et al. [Bitcoin-Compatible Virtual Channels](https://publik.tuwien.ac.at/files/publik_292507.pdf) adapts an alternative payment channel construction called _virtual_ channels to Bitcoin. Suggested future work
 * Aumayr et al. [Blitz: Secure Multi-Hop Payments Without Two-Phase Commits](https://www.usenix.org/conference/usenixsecurity21/presentation/aumayr) proposes an improved payment channel protocol that only requires one round of communication (unlike the LN that requires two).
@@ -362,6 +363,8 @@ The following papers analyze privacy challenges for Lightning:
 * Kappos et al. [An Empirical Analysis of Privacy in the Lightning Network](https://arxiv.org/abs/2003.12470) describes multiple privacy attacks on the LN, including identifying unannounced channels and path discovery by an honest-but-curious routing node.
 * Nisslmueller et al. [Toward Active and Passive Confidentiality Attacks On Cryptocurrency Off-Chain Networks](https://arxiv.org/abs/2003.00003) investigates two attacks on Lightning: channel balance probing and timing attacks.
 * Romiti et al. [Cross-Layer Deanonymization Methods in the Lightning Protocol](https://arxiv.org/abs/2007.00764) investigates how the LN interacts with the base layer and what related heuristics may help an attacker to diminish LN users' privacy.
+
+See [an overview](https://lightningprivacy.com/) of privacy challenges and solutions in Lightning by benthecarman et al.
 
 
 # Further resources
