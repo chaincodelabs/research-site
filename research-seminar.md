@@ -13,6 +13,18 @@ order: 2
  
  
  <hr style="border:2px solid gray">
+ 
+ 
+ 
+**Date**: Tuesday January 31st, 2023
+
+**Speaker**: Agostino Capponi (Columbia University)
+
+**Title**: Price Discovery on Decentralized Exchanges
+
+**Abstract**: In contrast to most centralized exchanges (CEXs) which match orders continuously following a price-time priority rule, decentralized exchanges (DEXs) process orders in batches and require traders to bid transaction fees to determine the execution priority. We provide evidence that informed traders bid high fees to execute their orders, thus revealing their private information and contributing to price discovery. We further show that they bid high fees not only to avoid execution risk but also to compete with each other. Using a unique dataset of Ethereum mempool orders, we last demonstrate that the competition among informed traders mostly follows a jump bidding strategy.
+
+<hr style="border:2px solid gray">
 
 **Date**: Tuesday November 15th, 2022
 
