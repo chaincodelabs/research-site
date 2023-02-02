@@ -49,7 +49,7 @@ Many Bitcoin-related technical conferences publish videos of talks online. Examp
 * [Advancing Bitcoin](https://www.advancingbitcoin.com/)
 * [The Atlanta Bitcoin Conference (TABConf)](https://tabconf.com/)
 
-Examples of research projects (also cited below under their respective subsections) have lead to changes in Bitcoin include the [Erebus attack](https://erebus-attack.comp.nus.edu.sg/), other P2P-related issues that have informed [various improvements](https://github.com/bitcoin-core/bitcoin-devwiki/wiki/Addrman-and-eclipse-attacks), and [Erlay](https://arxiv.org/abs/1905.10518) ([implementation in progress](https://github.com/bitcoin/bitcoin/pull/21515) as of late 2022).
+Examples of research projects (also cited below under their respective subsections) that have led to changes in Bitcoin include the [Erebus attack](https://erebus-attack.comp.nus.edu.sg/), other P2P-related issues that have informed [various improvements](https://github.com/bitcoin-core/bitcoin-devwiki/wiki/Addrman-and-eclipse-attacks), and [Erlay](https://arxiv.org/abs/1905.10518) ([implementation in progress](https://github.com/bitcoin/bitcoin/pull/21515) as of late 2022).
 
 
 # Introductory Materials
@@ -97,11 +97,11 @@ ECDSA has been used throughout Bitcoin's history.
 Support for Schnorr signatures, which offer privacy and scalability benefits (see [BIP340](https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki)), has been added in 2021.
 In Bitcoin, funds may be controlled by multiple keys.
 Spending such coins requires collaborative signature construction, which is a non-trivial task.
-Schemes for multi-signatures (n-of-n) as well as threshold signatures (t-of-n) have been designed.
+Schemes for multi-signatures (n-of-n), as well as threshold signatures (t-of-n), have been designed.
 The question of how to **design secure Schnorr-based signature protocols** remains an active area of research.
 * **Encryption in the P2P network.**
 Currently, connections in the Bitcoin P2P network are unencrypted.
-This allows a network adversary to analyze metadata, tamper with connections, and easily detect the fact that Bitcoin protocol is being used.
+This allows a network adversary to analyze metadata, tamper with connections, and easily detect the fact that the Bitcoin protocol is being used.
 [BIP-324](https://bip324.com/) addresses these concerns by adding encryption support.
 
 Prior work includes:
@@ -121,7 +121,7 @@ The paper [Survey on Cryptocurrency Networking: Context, State-of-the-Art, Chall
 
 Bitcoin's P2P protocol should have the following properties:
 
-* **Efficiency.** Data should propagate quickly to facilitate consensus and avoid providing an unfair advantage to better-connected nodes. The requirements differ for different message types. Blocks should propagate as quickly as possible; transaction should reach _miners_ quickly, while there isn't that much urgency in propagating IP addresses of peers.
+* **Efficiency.** Data should propagate quickly to facilitate consensus and avoid providing an unfair advantage to better-connected nodes. The requirements differ for different message types. Blocks should propagate as quickly as possible; transactions should reach _miners_ quickly, while there isn't that much urgency in propagating the IP addresses of peers.
 * **Security.** Bitcoin peers should minimize trust towards their peers and independently verify the data they receive. At the same time, the protocol should discourage denial-of-service attacks. This is challenging in an open network with no fixed identities. **Preventing eclipse attacks**, where an adversary sets up multiple nodes to fully control the flow of data between a victim node and the rest of the network, is especially important. For a review of eclipse attacks and countermeasures against them, see [this document](https://github.com/bitcoin-core/bitcoin-devwiki/wiki/Addrman-and-eclipse-attacks) by Adam Jonas et al.
 * **Privacy.** Bitcoin nodes should avoid leaking private information in their P2P communication patterns. In particular, an adversary shouldn't be able to determine which node a given transaction originates from. Similarly, network topology should also remain hidden: it must be difficult to figure out whether two nodes are connected. Ideally, even the fact that someone is communicating via the Bitcoin P2P protocol should remain hidden from a network observer.
 
@@ -133,7 +133,7 @@ Its advantages include encryption (to prevent man-in-the-middle attacks), lower 
 Open questions for Bitcoin P2P include:
 
 * What should be the desired properties of the P2P protocol? How to formalize them?
-* What node policies ensure quality and diversity of peers? How often should nodes rotate peers?
+* What node policies ensure the quality and diversity of peers? How often should nodes rotate peers?
 * What principles should underpin the gossip protocol? How often and to whom should nodes advertise their IP addresses?
 
 Prior work includes:
@@ -193,7 +193,7 @@ Open research questions include:
 
 No central authority coordinates the behavior of Bitcoin nodes.
 This makes game theory an important aspect of protocol design.
-In particular, miners must be incentivized to produce blocks and, ideally, should be rewarded proportionally to their contribution to Bitcoin's total hashpower.
+In particular, miners must be incentivized to produce blocks and, ideally, should be rewarded proportionally for their contribution to Bitcoin's total hashpower.
 Moreover, miners usually form pools to share the block rewards and ensure a predictable revenue stream.
 The relationships between miners and pools can also be thought of as a game.
 Research challenges in this area include formalizing the actions of the network participants, identifying undesired deviation strategies, and coming up with ways to mitigate them.
@@ -202,7 +202,7 @@ Research questions might include:
 
 * **Bitcoin's long-term sustainability.** Will Bitcoin be economically sustainable in light of the reduction of block subsidies (that is, if miners are primarily incentivized by transaction fees)?
 * **Deviant miner strategies.** Can miners gain more than their fair share of block rewards by deviating from the protocol in some way?
-* **Mining pools.** What is the power dynamics between miners and pools? How to ensure that rewards are fairly shared among miners? Is it possible to design a decentralized mining pool?
+* **Mining pools.** What are the power dynamics between miners and pools? How to ensure that rewards are fairly shared among miners? Is it possible to design a decentralized mining pool?
 
 Notable papers that consider the game-theoretic properties of Bitcoin include:
 
@@ -212,13 +212,13 @@ Notable papers that consider the game-theoretic properties of Bitcoin include:
 * Eyal and Sirer. [Majority is not Enough: Bitcoin Mining is Vulnerable](https://arxiv.org/abs/1311.0243) introduces selfish mining -- a strategy that allows a malicious miner to get more than its fair share of the block reward by strategically delaying block announcements.
 * Garay et al. [The Bitcoin Backbone Protocol: Analysis and Applications](https://eprint.iacr.org/2014/765) formally describes the Bitcoin protocol and analyzes it in the context of Byzantine agreement.
 * Pass et al. [Analysis of the Blockchain Protocol in Asynchronous Networks](https://eprint.iacr.org/2016/454) proves that Nakamoto consensus protocol satisfies consistency in an asynchronous setting.
-* Guo and Ren. [Bitcoin's Latency--Security Analysis Made Simple](https://arxiv.org/abs/2203.06357) develops the upper and lower bounds on the security of Nakamoto consensus.
+* Guo and Ren. [Bitcoin's Latency--Security Analysis Made Simple](https://arxiv.org/abs/2203.06357) develops the upper and lower bounds of the security of Nakamoto consensus.
 
 
 ## Economics
 
-Bitcoin can also be viewed from the economics perspective.
-Clearly, bitcoins are exchanged for fiat currencies and other cryptocurrencies.
+Bitcoin can also be viewed from an economic perspective.
+Bitcoins are exchanged for fiat currencies and other cryptocurrencies.
 The properties of those markets might be analyzed (see e.g. Hale et al. [How Futures Trading Changed Bitcoin Prices](https://www.frbsf.org/economic-research/wp-content/uploads/sites/4/el2018-12.pdf)).
 Moreover, actors in the Bitcoin protocol itself are part of a market for _block space_.
 
@@ -231,13 +231,13 @@ Open questions include:
 
 * **Fee strategies.** When constructing transactions, wallets face a trade-off between getting a transaction promptly confirmed vs overpaying in fees. An unconfirmed transaction may be _replaced_ ([replace-by-fee, or RBF](https://bitcoinops.org/en/topics/replace-by-fee/)). Miners are interested in including the highest-paying transaction in their blocks. What is the optimal replacement strategy for a wallet, and how does it affect the overall dynamics of the block space market? 
 * **Coin selection and UTXO management**. A Bitcoin transaction spends one or multiple _unspent transaction outputs_ (UTXOs) and creates new UTXOs. How should wallets select UTXOs for a new transaction? (This problem is known as [Coin selection](https://bitcoinops.org/en/topics/coin-selection/); see also [An Evaluation of Coin Selection Strategies](https://murch.one/erhardt2016coinselection.pdf) by Mark Erhardt.) Under what conditions is it worth it to consolidate small UTXOs? (This is especially relevant for high-volume wallets.) What are the privacy implications of coin selection and consolidation strategies?
-* **Block building.** On the other side of the block space market are the miners who collect unconfirmed transaction into blocks in exchange for block subsidy and fees. Generally speaking, block building is an instance of the knapsack problem with dependencies (a transaction may spend an output of another unconfirmed transaction, therefore, it will only be included in a block if its parent is included). For Bitcoin miners, time is of essence: every second spent on block template construction leads to lost revenue. There are many Bitcoin-specific considerations to this process (see e.g. [Improvement on the current block building algorithm](https://gist.github.com/Xekyo/5cb413fe9f26dbce57abfd344ebbfaf2#file-candidate-set-based-block-building-md) by Mark Erhardt and Clara Shikhelman). The question is therefore: how to construct an block building algorithm that reliably produces good enough solutions quickly?
+* **Block building.** On the other side of the block space market are the miners who collect unconfirmed transactions into blocks in exchange for block subsidies and fees. Generally speaking, block building is an instance of the knapsack problem with dependencies (a transaction may spend an output of another unconfirmed transaction, therefore, it will only be included in a block if its parent is included). For Bitcoin miners, time is of the essence: every second spent on block template construction leads to lost revenue. There are many Bitcoin-specific considerations to this process (see e.g. [Improvement on the current block building algorithm](https://gist.github.com/Xekyo/5cb413fe9f26dbce57abfd344ebbfaf2#file-candidate-set-based-block-building-md) by Mark Erhardt and Clara Shikhelman). The question is therefore: how to construct a block building algorithm that reliably produces good enough solutions quickly?
 * **Mining economics.** Mining is a complex economic phenomenon. What factors influence miners' behavior? Under what conditions is mining profitable? (See [The Economics of Bitcoin Mining, or Bitcoin in the Presence of Adversaries](https://asset-pdf.scinapse.io/prod/2188530018/2188530018.pdf) by Kroll et al.)
 * **Bitcoin's wider economic impact.** How does Bitcoin adoption influence the global economy? What role does it play in the remittance market? What are the effects of adopting Bitcoin as legal tender (as done in El Salvador)? How does Bitcoin mining impact the energy markets? (See e.g. Badea and Mungiu-Pupӑzan. [The Economic and Environmental Impact of Bitcoin](https://ieeexplore.ieee.org/abstract/document/9385063).)
 
 Papers on economic analysis of Bitcoin include:
 
-* Budish. [The Economic Limits of Bitcoin and Anonymous, Decentralized Trust on the Blockchain](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4148014) analyzes the cost of maintaining the security in relation to its resilience against attacks.
+* Budish. [The Economic Limits of Bitcoin and Anonymous, Decentralized Trust on the Blockchain](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4148014) analyzes the cost of maintaining security in relation to its resilience against attacks.
 * Böhme et al. [Bitcoin: Economics, Technology, and Governance](https://www.aeaweb.org/articles?id=10.1257/jep.29.2.213) offers an overview of Bitcoin's design principles for a nontechnical audience.
 * Huberman et al. [Monopoly without a Monopolist: An Economic Analysis of the Bitcoin Payment System](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3025604) compares Bitcoin's decentralized design to traditional payment systems in the context of monopolistic prices and suggests automatically adjusting capacity based on transaction volume.
 * Kayal and Rohilla. [Bitcoin in the economics and finance literature: a survey](https://link.springer.com/article/10.1007/s43546-021-00090-5) provides a review of Bitcoin-related studies.
@@ -254,14 +254,14 @@ Prior work includes:
 
 * Albayati et al. [A study on the use of cryptocurrency wallets from a user experience perspective](https://onlinelibrary.wiley.com/doi/abs/10.1002/hbe2.313) examines the factors impacting the utilization of cryptocurrency wallets.
 * Krombholz et al. [The Other Side of the Coin: User Experiences with Bitcoin Security and Privacy](https://link.springer.com/chapter/10.1007/978-3-662-54970-4_33) presents a large-scale survey on user experience in the Bitcoin ecosystem.
-* Voskobojnikov. [Towards understanding and improving the crypto-asset user experience](https://open.library.ubc.ca/soa/cIRcle/collections/ubctheses/24/items/1.0401956) (PhD thesis) analyzes the profiles of cryptocurrency users and the UX challenges they face.
+* Voskobojnikov. [Towards understanding and improving the crypto-asset user experience](https://open.library.ubc.ca/soa/cIRcle/collections/ubctheses/24/items/1.0401956) (Ph.D. thesis) analyzes the profiles of cryptocurrency users and the UX challenges they face.
 
 See also: [Wallet Scrutiny](https://walletscrutiny.com/), a project to check Bitcoin wallets for code reproducibility.
 
 
 # Research Areas in Second-Layer Protocols
 
-This section focuses on protocols build on top of Bitcoin.
+This section focuses on protocols built on top of Bitcoin.
 Such protocols are often referred to as off-chain or second-layer (L2) protocols.
 They provide additional functionality and use the base layer (Bitcoin) for dispute resolution.
 The most prominent Bitcoin-based L2 protocol is the Lightning Network (LN).
@@ -276,7 +276,7 @@ For a general introduction, see:
 
 See also [LN Research Community](https://github.com/lnresearch) for LN datasets and inspection tools.
 
-[^2]: Also see [the LN specifications (BOLTs)](https://github.com/lightning/bolts) for a formal protocol description.
+[^2]: Also, see [the LN specifications (BOLTs)](https://github.com/lightning/bolts) for a formal protocol description.
 
 
 ## L2 Protocol Design
@@ -310,20 +310,20 @@ Prior work on L2 designs also includes:
 ## Security
 
 Second-layer protocols rely on base layer availability.
-In the LN, for instance, a fraudulent channel closure can be disputed within a given a time window.
+In the LN, for instance, a fraudulent channel closure can be disputed within a given time window.
 Dispute resolution depends on whether the justice transaction is timely broadcast and confirmed.
 
 Modern research directions include:
 
 * **Interaction with the base layer.** L2 protocols rely on the base layer for rule enforcement. How can we make such enforcement reliable? The fundamental challenge is that congestion levels cannot be reliably predicted, which enables attack vectors like [transaction pinning](https://bitcoinops.org/en/topics/transaction-pinning/) and flood-and-loot (see below).
-* **Trustless watchtowers.** An LN user must monitor the Bitcoin blockchain to dispute fraud attempts. This task can be delegated to a third-party service called a watchtower. How to develop an incentive-compatible and privacy-preserving watchtower protocol? A watchtower should be accountable (get paid only if it does its job, and get punished if it doesn't), while knowing as little as possible about its client. A related challenge is to enforce fair completion of in-flight payments after channel closure. See a watchtower implementation: [The Eye of Satoshi (rust-teos)](https://github.com/talaia-labs/rust-teos).
+* **Trustless watchtowers.** An LN user must monitor the Bitcoin blockchain to dispute fraud attempts. This task can be delegated to a third-party service called a watchtower. How to develop an incentive-compatible and privacy-preserving watchtower protocol? A watchtower should be accountable (get paid only if it does its job and get punished if it doesn't) while knowing as little as possible about its client. A related challenge is to enforce fair completion of in-flight payments after channel closure. See a watchtower implementation: [The Eye of Satoshi (rust-teos)](https://github.com/talaia-labs/rust-teos).
 * **Addressing DoS vectors, such as jamming.** Jamming is a denial-of-service attack that involves initiating payments and delaying their finalization. Multiple approaches to jamming countermeasures [have been discussed](https://blog.bitmex.com/preventing-channel-jamming/), including new [fee and reputation schemes](https://research.chaincode.com/2022/11/15/unjamming-lightning/). How to protect the LN and other L2 protocols from DoS attacks?
 
 Prior work includes:
 
-* Harris and Zohar. [Flood & Loot: A Systemic Attack On The Lightning Network](https://arxiv.org/abs/2006.08513) describes an attack on the LN whereby an adversary floods the base layer with fraudulent channel closure transaction, causing congestion and preventing justice transactions from getting confirmed. The issue might be exacerbated by manipulating the pre-agreed on-chain fees in advance.
+* Harris and Zohar. [Flood & Loot: A Systemic Attack On The Lightning Network](https://arxiv.org/abs/2006.08513) describes an attack on the LN whereby an adversary floods the base layer with a fraudulent channel closure transaction, causing congestion and preventing justice transactions from getting confirmed. The issue might be exacerbated by manipulating the pre-agreed on-chain fees in advance.
 * Mizrahi et al. [Congestion Attacks in Payment Channel Networks](https://arxiv.org/abs/2002.06564) evaluates the cost of channel jamming.
-* Riard and Naumenko. [Time-Dilation Attacks on the Lightning Network](https://arxiv.org/abs/2006.01418) explores the implications of eclipse attacks on the LN and shows how a adversary who controls the victim's view of the Bitcoin network can steal LN funds.
+* Riard and Naumenko. [Time-Dilation Attacks on the Lightning Network](https://arxiv.org/abs/2006.01418) explores the implications of eclipse attacks on the LN and shows how an adversary who controls the victim's view of the Bitcoin network can steal LN funds.
 * Rohrer et al. [Discharged Payment Channels: Quantifying the Lightning Network's Resilience to Topology-Based Attacks](https://arxiv.org/abs/1904.10253) derives the optimal attacker's strategies for channel exhaustion and node isolation in the view of the LN network topology.
 * Tohner et al. [Hijacking Routes in Payment Channel Networks: A Predictability Tradeoff](https://arxiv.org/abs/1909.06890) describes an attack that involves attracting LN payments by advertising low fees and then denying service.
 * Tsabary et al. [MAD-HTLC: Because HTLC is Crazy-Cheap to Attack](https://arxiv.org/abs/2006.12031) indicates a potential for miner bribery attacks in the current LN protocol and proposes a more game-theoretically robust construction for channel updates.
@@ -331,8 +331,8 @@ Prior work includes:
 Proposed watchtower schemes include:
 
 * Avarikioti et al. [Cerberus Channels: Incentivizing Watchtowers for Bitcoin](https://eprint.iacr.org/2019/1092) proposes a Bitcoin-compatible payment channel construction with incentivized watchtowers.
-* Khabbazian et al. [Outpost: A Responsive Lightweight Watchtower](https://eprint.iacr.org/2019/986) suggests encoding justice transaction in the opening and commitment transactions in the LN to reduce storage requirements for watchtowers.
-* Mirzaei et al. [FPPW: A Fair and Privacy Preserving Watchtower For Bitcoin](https://eprint.iacr.org/2021/117) proposes a watchtower scheme for Bitcoin with fairness and balance privacy.
+* Khabbazian et al. [Outpost: A Responsive Lightweight Watchtower](https://eprint.iacr.org/2019/986) suggests encoding a justice transaction in the opening and commitment transactions in the LN to reduce storage requirements for watchtowers.
+* Mirzaei et al. [FPPW: A Fair and Privacy Preserving Watchtower For Bitcoin](https://eprint.iacr.org/2021/117) proposes a watchtower scheme for Bitcoin with fairness and balanced privacy.
 
 
 ## Privacy
@@ -342,10 +342,10 @@ The LN, in particular, should not reveal a user's balance, their position in the
 
 Privacy-related research areas include:
 
-* **Cross-layer privacy.** Currently, LN channels are linked to their respective opening on-chain transactions. This allows for enriching existing on-chain address clustering data with LN information. With Schnorr signatures, it is possible to make LN-related transactions indistinguishable from other transactions on the base layer through signature aggregation. However, channel announcements must still commit to some scarce resource to avoid denial-of-service attacks. How can we ensure that L2 activity remains opaque from the base-layer viewpoint?
-* **Multi-hop payment de-correlation with PTLCs.** Point Time Locked Contracts (PTLCs) are a new type of multi-hop Schnorr-based channel locks. Currently, the LN relies on hashed time-locked contracts (HTLCs) to ensure atomicity in multi-hop payments. HTLCs along a path have the same hash. PTLC is an alternative for HTLC that avoids hop correlation. See: Malavolta et al. [Anonymous Multi-Hop Locks for Blockchain Scalability and Interoperability](https://eprint.iacr.org/2018/472). For a recent write-up, see: [Multi-Hop Locks from Scriptless Scripts](https://github.com/ElementsProject/scriptless-scripts/blob/master/md/multi-hop-locks.md).
+* **Cross-layer privacy.** Currently, LN channels are linked to their respective opening on-chain transactions. This allows for enriching existing on-chain address clustering data with LN information. With Schnorr signatures, it is possible to make LN-related transactions indistinguishable from other transactions on the base layer through signature aggregation. However, channel announcements must still commit to a scarce resource to avoid denial-of-service attacks. How can we ensure that L2 activity remains opaque from the base-layer viewpoint?
+* **Multi-hop payment de-correlation with PTLCs.** Point Time Locked Contracts (PTLCs) are a new type of multi-hop Schnorr-based channel locks. Currently, the LN relies on hashed time-locked contracts (HTLCs) to ensure atomicity in multi-hop payments. HTLCs along a path have the same hash. PTLC is an alternative of HTLC that avoids hop correlation. See: Malavolta et al. [Anonymous Multi-Hop Locks for Blockchain Scalability and Interoperability](https://eprint.iacr.org/2018/472). For a recent write-up, see: [Multi-Hop Locks from Scriptless Scripts](https://github.com/ElementsProject/scriptless-scripts/blob/master/md/multi-hop-locks.md).
 * **Privacy-preserving routing.** Receivers in the LN currently reveal their node identity to the sender. Techniques like [blinded paths](https://github.com/lightning/bolts/pull/765) aim to lift this requirement to ensure sender privacy. See also: [trampoline payments](https://bitcoinops.org/en/topics/trampoline-payments/). An adversary can also make educated guesses about routes by running the path-finding algorithm locally on a graph snapshot. Privacy leaks also occur through response timings (see: Rohrer and Tschorsch. [Counting Down Thunder: Timing Attacks on Privacy in Payment Channel Networks](https://arxiv.org/abs/2006.12143)). Privacy-preserving routing remains an open problem.
-* **Preventing balance probing.** Channel balances are not announced, but they can be easily _probed_, that is, estimated based on error messages. Nodes perform probing to increase success rates of their own payments, as the uncertainty of channel balances is the leading cause of payment failures. Constant probing (sending payments that immediately fail) burdens the network. How do we reconcile payment reliability with privacy? See e.g.: Herrera-Joancomartí et al. [On the Difficulty of Hiding the Balance of Lightning Network Channels](https://eprint.iacr.org/2019/328).
+* **Preventing balance probing.** Channel balances are not announced, but they can be easily _probed_, that is, estimated based on error messages. Nodes perform probing to increase the success rates of their own payments, as the uncertainty of channel balances is the leading cause of payment failures. Constant probing (sending payments that immediately fail) burdens the network. How do we reconcile payment reliability with privacy? See e.g.: Herrera-Joancomartí et al. [On the Difficulty of Hiding the Balance of Lightning Network Channels](https://eprint.iacr.org/2019/328).
 
 The following papers analyze privacy challenges for the LN:
 
@@ -369,7 +369,7 @@ Prior work includes:
 
 * Pickhardt and Nowostawski. [Imbalance measure and proactive channel rebalancing algorithm for the Lightning Network](https://ieeexplore.ieee.org/abstract/document/9169456) describes a technique for rebalancing (shifting liquidity between channels to increase success rates).
 * Avarikioti et al. [HIDE & SEEK: Privacy-Preserving Rebalancing on Payment Channel Networks](https://eprint.iacr.org/2021/1401) presents an opt-in rebalancing protocol that uses multi-party computation for stronger privacy.
-* Papadis and Tassiulas. [State-Dependent Processing in Payment Channel Networks for Throughput Optimization](https://arxiv.org/abs/2103.17207) proposes using a channel buffer wherein payments routed in the opposite directions balance each other out to avoid liquidity depletion.
+* Papadis and Tassiulas. [State-Dependent Processing in Payment Channel Networks for Throughput Optimization](https://arxiv.org/abs/2103.17207) proposes using a channel buffer wherein payments routed in opposite directions balance each other out to avoid liquidity depletion.
 * Guasoni et al. [Lightning Network Economics: Channels](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3840374) quantifies the cost of LN channels and the optimal conditions for two parties to open a channel.
 * Beres et al. [A Cryptoeconomic Traffic Analysis of Bitcoin's Lightning Network](https://arxiv.org/abs/1911.09432) simulates LN traffic based on a public network snapshot, estimates feasible fee revenues, and analyzes the network's economic viability as well as privacy.
 * Lin et al. [Lightning network: a second path towards centralisation of the Bitcoin economy](https://iopscience.iop.org/article/10.1088/1367-2630/aba062/meta) analyzes the topological centralization of the LN.
@@ -379,7 +379,7 @@ Prior work includes:
 
 Each payment in the LN is forwarded along a route chosen by the sender.
 The sender considers multiple factors, such as the network topology, channel capacities, advertised fees, and outcomes of prior payment attempts.
-Classical path-finding algorithm, such as the Dijkstra algorithm, are not directly applicable, as the sender can't assign edge weights (remote channels balances are generally unknown).
+Classical path-finding algorithms, such as the Dijkstra algorithm, are not directly applicable, as the sender can't assign edge weights (remote channels balances are generally unknown).
 
 An open research question is **developing a path selection algorithm** for the LN with the following properties:
 
