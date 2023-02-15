@@ -11,7 +11,24 @@ order: 2
 
  Subscribe to our mailing list by clicking [here](https://gmail.us12.list-manage.com/subscribe?u=d60d7dfc73006b95a62450c30&id=7fa7f74340).
  
+  <hr style="border:2px solid gray">
  
+ 
+ 
+**Date**: Tuesday February 21st, 2023
+
+**Speaker**: Maryam Bahrani (a16z)
+
+**Title**: Statistically Undetectable Selfish Mining
+
+**Abstract**: Seminal work of Eyal and Sirer (2014) establishes that a strategic Bitcoin miner may strictly profit by deviating from the intended Bitcoin protocol, using a strategy now termed selfish mining. More specifically, any miner with >1/3 of the total hashrate can earn bitcoin at a faster rate by selfish mining than by following the intended protocol (depending on network conditions, a lower fraction of hashrate may also suffice). Nonetheless, no evidence of selfish mining attacks has been reported in practice (even during periods where a single pool controlled >1/3 of the total Bitcoin hashrate, and even on smaller blockchains where it is relatively less expensive for a single miner to control >1/3 of the total hashrate).
+
+While there are several possible explanations for this, the most cited (and perhaps also the most convincing) is that the presence of a selfish miner is statistically detectable: the pattern of orphaned blocks created by the presence of a selfish miner cannot be explained by natural network delays. Therefore, if an attacker chooses to selfish mine, users will likely notice, and the USD value of Bitcoin may tank. So while the attacker may get slightly more bitcoin by selfish mining, these bitcoins may be worth significantly less USD.
+
+We develop a variant of selfish mining that is provably statistically undetectable: the pattern of orphaned blocks is statistically identical to a world with only honest miners but higher network delay. Specifically, we consider a stylized model where honest miners with network delay produce orphaned blocks at each height independently with probability $\beta'$. We propose a selfish mining strategy that instead produces orphaned blocks at each height independently with probability $\beta > \beta'$ instead. We further show that our strategy is still strictly profitable for attackers with << 1/2 of the total hashrate (for example, when $\beta' = 0$, our strategy is strictly profitable with 38.2% of the total hashrate).
+
+We conclude that statistically undetectable and strictly profitable attacks on any longest-chain proof-of-work blockchain are possible. This suggests that sufficiently large attackers can profitably deviate from the intended Bitcoin protocol (or, perhaps more likely, smaller blockchains where it is relatively less expensive to control >38.2\% of the total hashrate) without risk of tanking the value.
+
  <hr style="border:2px solid gray">
  
  
