@@ -14,8 +14,35 @@ order: 2
   <hr style="border:2px solid gray">
  
  
+**Date**: Tuesday March 14th, 2023
+
+**Speaker**: Benedikt Bünz (Espresso Systems, NYU (soon))
+
+**Title**: HyperPlonk: Plonk with Linear-Time Prover and High-Degree Custom Gates
+
+**Abstract**: Plonk is a widely used succinct non-interactive proof system that uses univariate polynomial commitments. Plonk is quite flexible: it supports circuits with low-degree ``custom'' gates as well as circuits with lookup gates (a lookup gate ensures that its input is contained in a predefined table). For large circuits, the bottleneck in generating a Plonk proof is the need for computing a large FFT.
+
+We present HyperPlonk, an adaptation of Plonk to the boolean hypercube, using multilinear polynomial commitments. HyperPlonk retains the flexibility of Plonk but provides several additional benefits. First, it avoids the need for an FFT during proof generation. Second, and more importantly, it supports custom gates of much higher degree than Plonk without harming the running time of the prover. Both of these can dramatically speed up the prover's running time. Since HyperPlonk relies on multilinear polynomial commitments, we revisit two elegant constructions: one from Orion and one from Virgo. We show how to reduce the Orion opening proof size to less than 10kb (an almost factor 1000 improvement) and show how to make the Virgo FRI-based opening proof simpler and shorter.
+
+ <hr style="border:2px solid gray">
  
-**Date**: Tuesday February 21st, 2023
+ 
+ 
+**Date**: Tuesday March 2nd, 2023
+
+**Speaker**: Ben Fisch (Yale)
+
+**Title**: Multilinear Schwartz-Zippel mod N with Applications to Succinct Arguments
+
+**Abstract**: In this talk I will present a new variant of the Schwartz-Zippel lemma for multilinear integer polynomials modulo a composite integer N and remark on its application to succinct arguments. This lemma is a key ingredient to analyzing the security of the Bulletproofs protocol with commitment schemes that are only binding to vectors of small norm. These include commitments from groups of unknown order (DARK) as well as integer and ideal lattices (Ajtai). This is the first result showing that Bulletproofs (in its original form) is secure in the lattice setting even with exponentially sized challenges. Prior attempts restricted the challenges to exceptional sets, which have polynomial size, and thus required parallel repetition to amplify soundness.
+
+ <hr style="border:2px solid gray">
+ 
+ 
+ 
+ 
+ 
+**Date**: Tuesday February 21st, 2023 (Moved to April 4th)
 
 **Speaker**: Maryam Bahrani (a16z)
 
