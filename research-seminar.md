@@ -42,7 +42,7 @@ We present HyperPlonk, an adaptation of Plonk to the boolean hypercube, using mu
  
  
  
-**Date**: Tuesday February 21st, 2023 (Moved to April 4th)
+**Date**: Tuesday February 21st, 2023 (Moved to April 11th)
 
 **Speaker**: Maryam Bahrani (a16z)
 
