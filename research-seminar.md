@@ -11,6 +11,19 @@ order: 2
 
  Subscribe to our mailing list by clicking [here](https://gmail.us12.list-manage.com/subscribe?u=d60d7dfc73006b95a62450c30&id=7fa7f74340).
  
+   <hr style="border:2px solid gray">
+ 
+ 
+**Date**: Tuesday May 16th, 2023
+
+**Speaker**: Dan Aronoff (MIT)
+
+**Title**: A Proof-of-Work Protocol Modification to Improve Security and Limit Energy Consumption
+
+**Abstract**: In a Proof-of-Work blockchain miners assemble transactions into blocks and compete to solve a mining puzzle. The winner earns a block reward. The equilibrium hashrate applied to guessing puzzle solutions is a monotone function of the fiat exchange value of the block reward. There is no lower or upper bound on hashrate. This creates two types of inefficiency. First, the vulnerability to an attack increases as hashrate falls since (we argue) the profitability of a double-spend or disruptive attack is a function of the hashrate required to gain control of the network and is orthogonal to the fiat exchange value of the cryptocurrency. Second, external costs grow as hashrate rises. Hashing consumes electricity which contributes to global warming and increases the cost of energy for alternative uses. There is an interval of hashrate within which the combined costs are minimized. 
+
+We propose a modification of the Proof-of-Work protocol that, for a target interval, incentivizes miners to push hashrate toward the interval. When hashrate drops below the lower bound, the miner receives a supplement to the block reward which induces an increase in hashrate. When hashrate exceeds the upper bound, the miner receives a fraction of the block reward, which induces a reduction in hashrate. Puzzle difficulty, which is a sufficient statistic for hashrate, governs the adjustment to the miner’s reward. Monetary neutrality can be maintained by balancing the reduced reward when hashrate is above target with the supplement to the reward when hashrate is below target.
+ 
   <hr style="border:2px solid gray">
  
  
