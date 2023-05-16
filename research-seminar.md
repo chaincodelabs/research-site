@@ -13,6 +13,24 @@ order: 2
  
    <hr style="border:2px solid gray">
  
+**Date**: Wednesday May 24th, 2023
+
+**Speaker**: Matt Weinberg (Princeton)
+
+**Title**: Mechanism Design for Blockchain Protocols
+
+**Abstract**: In this talk, I'll overview mechanism design challenges and results in several classes of consensus protocols. The results all have the form: 
+
+"In a consensus protocol of class X, what is a sufficiently large Y such that as long as no individual entity controls Y fraction of the stake/hashrate/etc., it is a Nash equilibrium to follow the protocol?"
+
+I'll discuss results in the following classes of consensus protocols:
+- Proof-of-Work, Longest-Chain, Block Reward (joint with Maryam Bahrani)
+- Proof-of-Work, Longest-Chain, Transaction fees (joint with Miles Carlsten, Harry Kalodner, Arvind Narayanan)
+- Proof-of-Stake, Longest-Chain, internal pseudorandomness (joint with Jonah Brown-Cohen, Alex Psomas, Arvind Narayanan)
+- Proof-of-Stake, Longest-Chain, trusted external randomness (joint with Matheus Ferreira)
+- Proof-of-Stake, Byzantine Consensus, internal pseudorandomness (joint with Matheus Ferreira, Ye Lin Sally Hahn, Catherine Yu)
+ 
+  <hr style="border:2px solid gray">
  
 **Date**: Tuesday May 16th, 2023
 
