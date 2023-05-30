@@ -19,6 +19,8 @@ order: 2
 
 **Title**: Mechanism Design for Blockchain Protocols
 
+**Recording:** [video](https://www.youtube.com/watch?v=WfbWDg_dl_M)
+
 **Abstract**: In this talk, I'll overview mechanism design challenges and results in several classes of consensus protocols. The results all have the form: 
 
 "In a consensus protocol of class X, what is a sufficiently large Y such that as long as no individual entity controls Y fraction of the stake/hashrate/etc., it is a Nash equilibrium to follow the protocol?"
