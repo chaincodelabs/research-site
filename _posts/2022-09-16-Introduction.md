@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing the Chaincode Research Prize
+title: Introducing the Bitcoin Research Prize
 ---
 
 <!--- ### About --->
