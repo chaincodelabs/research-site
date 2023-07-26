@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Chaincode Research Prize
+title: Bitcoin Research Prize
 order: 3
 ---
 
