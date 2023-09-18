@@ -16,6 +16,14 @@ You can find the nomination form [here](https://docs.google.com/forms/d/e/1FAIpQ
 
 <!--- * [Example link](http://hyde.getpoole.com) -->
 
+**Prize Committee**
+
+- Dan Boneh (Stanford)
+- Ethan Heilman (BastionZero)
+- Neha Narula (MIT)
+- Tim Ruffing (Blockstream Research)
+- Pieter Wuille (Chaincode Labs)
+- Aviv Zohar (HUJI)
 
 **Q&A**
 
